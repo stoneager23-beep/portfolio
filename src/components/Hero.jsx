@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Download } from 'lucide-react';
+import resumePdf from '../assets/resume.pdf';
 
 const Hero = () => {
   return (
@@ -20,8 +21,8 @@ const Hero = () => {
             <a href="#projects" className="btn btn-primary">
               View Work <ArrowRight size={20} />
             </a>
-            <a href="/resume.pdf?v=2" download="resume.pdf" className="btn btn-outline">
-              Download CV (Updated) <Download size={20} />
+            <a href={resumePdf} download="Husnain_Faisal_CV.pdf" className="btn btn-outline">
+              Download CV <Download size={20} />
             </a>
           </div>
         </div>
