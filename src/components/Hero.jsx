@@ -22,7 +22,7 @@ const Hero = () => {
               View Work <ArrowRight size={20} />
             </a>
             <a href={resumePdf} download="Husnain_Faisal_CV.pdf" className="btn btn-outline">
-              Download CV <Download size={20} />
+              Download CV (Fixed) <Download size={20} />
             </a>
           </div>
         </div>
