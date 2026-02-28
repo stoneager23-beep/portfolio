@@ -45,7 +45,7 @@ const Hero = () => {
         </p>
 
         <div className="hero-actions" ref={dropdownRef}>
-          <div className="dropdown-container">
+          <div className={`dropdown-container ${activeDropdown === 'projects' ? 'active-dropdown' : ''}`}>
             <button
               className="primary-btn luxury-border gold-glow group"
               onClick={() => toggleDropdown('projects')}
@@ -55,18 +55,18 @@ const Hero = () => {
             </button>
 
             <div className={`dropdown-menu glass-card ${activeDropdown === 'projects' ? 'show' : ''}`}>
-              <a href="#projects" className="dropdown-item" onClick={() => setActiveDropdown(null)}>
+              <a href="#projects" className="dropdown-item" onClick={() => setTimeout(() => setActiveDropdown(null), 150)}>
                 <span className="material-symbols-outlined">code</span>
                 Web Development
               </a>
-              <a href="#projects" className="dropdown-item" onClick={() => setActiveDropdown(null)}>
+              <a href="#projects" className="dropdown-item" onClick={() => setTimeout(() => setActiveDropdown(null), 150)}>
                 <span className="material-symbols-outlined">movie</span>
                 Video Editing
               </a>
             </div>
           </div>
 
-          <div className="dropdown-container">
+          <div className={`dropdown-container ${activeDropdown === 'contact' ? 'active-dropdown' : ''}`}>
             <button
               className="secondary-btn glass-card group"
               onClick={() => toggleDropdown('contact')}
@@ -77,11 +77,11 @@ const Hero = () => {
             </button>
 
             <div className={`dropdown-menu glass-card contact-menu ${activeDropdown === 'contact' ? 'show' : ''}`}>
-              <a href="mailto:husnain@email.com" className="dropdown-item" onClick={() => setActiveDropdown(null)}>
+              <a href="mailto:stoneager23@gmail.com" className="dropdown-item" onClick={() => setTimeout(() => setActiveDropdown(null), 150)}>
                 <span className="material-symbols-outlined">mail</span>
                 Email directly
               </a>
-              <a href="#experience" className="dropdown-item" onClick={() => setActiveDropdown(null)}>
+              <a href="#experience" className="dropdown-item" onClick={() => setTimeout(() => setActiveDropdown(null), 150)}>
                 <span className="material-symbols-outlined">chat</span>
                 Use inquiry form
               </a>
