@@ -12,10 +12,14 @@
   --color-gold-dark: #996515;
   --text-main: #f3f4f6;
   --text-muted: #9ca3af;
-  
+
   /* Utilities */
   --gold-gradient: linear-gradient(to right, #F3E5AB, #D4AF37, #996515);
   --gold-glow: rgba(212, 175, 55, 0.15);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -34,7 +38,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   line-height: 1.2;
 }
@@ -62,7 +71,7 @@ button {
 .luxury-border {
   border: 1px solid transparent;
   background: linear-gradient(#121212, #121212) padding-box,
-              linear-gradient(to right, #D4AF37, #F3E5AB, #996515) border-box;
+    linear-gradient(to right, #D4AF37, #F3E5AB, #996515) border-box;
 }
 
 .gold-glow {
@@ -107,12 +116,26 @@ button {
 
 .bg-mesh {
   background: radial-gradient(circle at 50% -20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 0% 100%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+    radial-gradient(circle at 0% 100%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
 }
 
 .serif-gold {
   font-family: var(--font-serif);
   color: var(--color-gold);
+}
+
+/* Cinematic Scroll Reveals */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Base tailwind-like util overrides if needed, though we will try to use tailwind directly since it's installed via Vite (wait, is it installed?) package.json shows tailwind? */
