@@ -1,0 +1,314 @@
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.5rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-background-glows {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.glow-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+}
+
+.glow-1 {
+    top: -10%;
+    left: -5%;
+    width: 45rem;
+    height: 45rem;
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.glow-2 {
+    bottom: 10%;
+    right: -5%;
+    width: 40rem;
+    height: 40rem;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.glow-3 {
+    top: 25%;
+    right: 10%;
+    width: 20rem;
+    height: 20rem;
+    background: rgba(153, 101, 21, 0.1);
+    filter: blur(100px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1.25rem;
+    margin-bottom: 2.5rem;
+    border-radius: 9999px;
+    border-color: rgba(212, 175, 55, 0.2);
+}
+
+.ping-dot-container {
+    position: relative;
+    display: flex;
+    height: 6px;
+    width: 6px;
+}
+
+.ping-dot-animate {
+    position: absolute;
+    display: inline-flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: var(--color-gold);
+    opacity: 0.75;
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+
+    75%,
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.ping-dot {
+    position: relative;
+    display: inline-flex;
+    border-radius: 50%;
+    height: 6px;
+    width: 6px;
+    background-color: var(--color-gold);
+}
+
+.badge-text {
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-gold-light);
+}
+
+.hero-title {
+    font-size: 3.75rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    color: white;
+    margin-bottom: 2rem;
+    line-height: 0.9;
+    font-family: var(--font-hero);
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 7rem;
+    }
+}
+
+.hero-title-highlight {
+    font-weight: 300;
+}
+
+.hero-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    max-width: 42rem;
+    margin: 0 auto 4rem auto;
+    letter-spacing: 0.1em;
+    line-height: 1.625;
+    text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+.subtitle-divider {
+    margin: 0 0.75rem;
+    color: rgba(212, 175, 55, 0.3);
+}
+
+.hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+@media (min-width: 640px) {
+    .hero-actions {
+        flex-direction: row;
+    }
+}
+
+.primary-btn {
+    position: relative;
+    display: flex;
+    min-width: 220px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    overflow: hidden;
+    border-radius: 9999px;
+    height: 4rem;
+    padding: 0 2.5rem;
+    color: white;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+    transform: scale(1.05);
+}
+
+.icon-arrow {
+    font-size: 1.125rem;
+    color: var(--color-gold);
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.primary-btn:hover .icon-arrow {
+    transform: translateX(4px);
+}
+
+.secondary-btn {
+    position: relative;
+    display: flex;
+    min-width: 220px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    overflow: hidden;
+    border-radius: 9999px;
+    height: 4rem;
+    padding: 0 2.5rem;
+    color: white;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.secondary-btn:hover {
+    background-color: rgba(212, 175, 55, 0.05);
+}
+
+.secondary-btn .text-gold {
+    color: var(--color-gold);
+    font-size: 1.125rem;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0.4;
+}
+
+.scroll-text {
+    font-size: 0.5625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    font-weight: 700;
+    color: var(--color-gold);
+}
+
+.scroll-line {
+    width: 1px;
+    height: 4rem;
+    background: linear-gradient(to bottom, var(--color-gold), transparent);
+}
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 1rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 220px;
+    background: rgba(10, 10, 11, 0.95);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 50;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.dropdown-item .material-symbols-outlined {
+    font-size: 1.125rem;
+    color: rgba(212, 175, 55, 0.5);
+    transition: color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: white;
+}
+
+.dropdown-item:hover .material-symbols-outlined {
+    color: var(--color-gold);
+}

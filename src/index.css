@@ -1,33 +1,21 @@
 :root {
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-hero: 'Montserrat', sans-serif;
 
   /* Colors */
-  --color-bg: #0a0a0a;
-  --color-surface: #171717;
-  --color-surface-glass: rgba(23, 23, 23, 0.7);
-  --color-text-main: #f3f4f6;
-  --color-text-muted: #9ca3af;
+  --bg-dark: #0a0a0b;
+  --charcoal: #121212;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F3E5AB;
+  --color-gold-dark: #996515;
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
   
-  --color-primary: #6366f1;
-  --color-secondary: #a855f7;
-  --color-accent: #14b8a6;
-  
-  /* Gradients */
-  --gradient-main: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  --gradient-glow: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-
-  /* Spacing */
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 4rem;
-
-  /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: 1px solid rgba(255, 255, 255, 0.05);
-  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  --backdrop-blur: 10px;
+  /* Utilities */
+  --gold-gradient: linear-gradient(to right, #F3E5AB, #D4AF37, #996515);
+  --gold-glow: rgba(212, 175, 55, 0.15);
 }
 
 * {
@@ -37,18 +25,18 @@
 }
 
 body {
-  font-family: var(--font-body);
-  background-color: var(--color-bg);
-  color: var(--color-text-main);
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   line-height: 1.2;
-  margin-bottom: var(--spacing-sm);
 }
 
 a {
@@ -58,29 +46,73 @@ a {
 }
 
 button {
-  font-family: var(--font-heading);
+  font-family: inherit;
   cursor: pointer;
 }
 
-/* Utilities */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
+/* Glass & Premium UI Utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.text-gradient {
-  background: var(--gradient-main);
+.luxury-border {
+  border: 1px solid transparent;
+  background: linear-gradient(#121212, #121212) padding-box,
+              linear-gradient(to right, #D4AF37, #F3E5AB, #996515) border-box;
+}
+
+.gold-glow {
+  box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.2), 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.text-gold-gradient {
+  background: var(--gold-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--backdrop-blur));
-  -webkit-backdrop-filter: blur(var(--backdrop-blur));
-  border: var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  border-radius: 16px;
+.bg-gold-gradient {
+  background: var(--gold-gradient);
 }
+
+.gold-rim {
+  box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.1), 0 0 20px rgba(212, 175, 55, 0.05);
+}
+
+.gold-icon {
+  color: var(--color-gold);
+  filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.5));
+}
+
+.pill-gold {
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.grainy-bg {
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAoFHwwNhzOQCjlSXGOEAUFOAwHxop8Y_8LHElYI1hj5jraAVQvg3rPwGZcPG5KSFIejMCa-VBiTwNC0OYVXE_tJKgU31t6LkSReW0fxWYWYME6q7qTmqjfoYKzPbuhBKwgqt6YSWv57s_e1pP9gHp9Ucf00fcg0C8VcotGJx5mLx_Q6rrCtbzuu6EKzCzcADj0UriHLIUAqOCB8bazIaHsRGWOVswZeBLxifjr1apN4DK4dSN0TOMsriKc6xWsc8UzbiClJmiTqg');
+  background-blend-mode: overlay;
+}
+
+.bg-mesh {
+  background: radial-gradient(circle at 50% -20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 0% 100%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+}
+
+.serif-gold {
+  font-family: var(--font-serif);
+  color: var(--color-gold);
+}
+
+/* Base tailwind-like util overrides if needed, though we will try to use tailwind directly since it's installed via Vite (wait, is it installed?) package.json shows tailwind? */
