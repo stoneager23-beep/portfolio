@@ -1,123 +1,104 @@
 import React from 'react';
 import './About.css';
 
+const skillCategories = [
+  {
+    title: 'Full-Stack Engineering',
+    icon: 'terminal',
+    skills: [
+      { name: 'Laravel', level: 'Expert' },
+      { name: 'React', level: 'Advanced' },
+      { name: 'Tailwind', level: 'Expert' },
+      { name: 'SQL', level: 'Senior' },
+    ],
+  },
+  {
+    title: 'Cinematic Production',
+    icon: 'movie',
+    skills: [
+      { name: 'After Effects', level: 'Advanced' },
+      { name: 'Premiere Pro', level: 'Advanced' },
+      { name: 'DaVinci Resolve', level: 'Learning' },
+    ],
+  },
+];
+
+const levelStyles = {
+  Expert: { bg: 'rgba(212, 175, 55, 0.25)', color: '#f2ca50' },
+  Advanced: { bg: 'rgba(162, 231, 255, 0.15)', color: '#a2e7ff' },
+  Senior: { bg: 'rgba(212, 175, 55, 0.15)', color: '#d4af37' },
+  Learning: { bg: 'rgba(255, 255, 255, 0.08)', color: '#9ca3af' },
+};
+
 const About = () => {
   return (
     <section id="about" className="about-section">
       <div className="section-container">
-
         <div className="about-header">
-          <span className="section-subtitle">Deep Dive Portfolio</span>
-          <h2 className="section-title">About <span className="text-gold-gradient">Me</span></h2>
+          <span className="section-badge">Capability Matrix</span>
+          <h2 className="section-heading">
+            THE <span className="accent">skillset</span>
+          </h2>
         </div>
 
-        <div className="about-card glass-card gold-rim">
-          <div className="about-image-container">
-            {/* Note: I'm using the image from the stitch design */}
-            <div className="about-image bg-workspace"></div>
-            <div className="about-image-overlay"></div>
-            <div className="about-image-border"></div>
-          </div>
-
-          <div className="about-content">
-            <div className="about-role">
-              <span className="material-symbols-outlined gold-icon role-icon">verified_user</span>
-              <h3 className="role-title">Creative Full-Stack Developer</h3>
-            </div>
-
-            <p className="about-description">
-              Architecting high-end digital solutions where technical precision meets artistic vision. Specializing in high-performance Laravel/React backends and cinematic 4K post-production storytelling.
-            </p>
-
-            <div className="about-skills-grid">
-              <div className="skill-item group">
-                <h4 className="skill-title">
-                  <span className="material-symbols-outlined gold-icon">code_blocks</span>
-                  Modern Development
-                </h4>
-                <p className="skill-description">Developing scalable, secure enterprise-grade systems with clean architecture.</p>
+        <div className="about-layout">
+          {/* Portrait */}
+          <div className="portrait-column">
+            <div className="hex-portrait-wrapper">
+              <div className="hex-portrait">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxiolcTM6xwxYKB9OidYRC7EstH58Lkr4IhT-3oQlcsxQR5NBLbn4QlDowM1SYKGXQWIDX8m2xuHhx_jEbp02oR-JstFWkNqQlJroz1GDzciahLCn0g0GukZXVq_Gl2l4dgx1bkhS8AAM01NlZxMKFSvPiqgNCGLp6TuZs5utUy6LKEI7Zt2IQ9G9EZsYm4fri7LjjD9AfGP52O_V3RxfLAGbkGq0saFs2rFCkTdfurnniZhnk7Rw1hQ2PPlawM-DkMVRZ-te2ZA"
+                  alt="Husnain Faisal"
+                  className="hex-img"
+                />
               </div>
-
-              <div className="skill-item group">
-                <h4 className="skill-title">
-                  <span className="material-symbols-outlined gold-icon">movie</span>
-                  Cinema Post-Pro
-                </h4>
-                <p className="skill-description">Visual storytelling using industry-standard tools for broadcast quality.</p>
+              <div className="hex-border"></div>
+            </div>
+            <div className="portrait-stats">
+              <div className="stat-bubble">
+                <span className="stat-number">3+</span>
+                <span className="stat-text">Years</span>
+              </div>
+              <div className="stat-bubble">
+                <span className="stat-number">24+</span>
+                <span className="stat-text">Projects</span>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Technical Mastery Section */}
-        <div className="mastery-header">
-          <h2 className="section-title">Technical <span className="text-gold-gradient">Mastery</span></h2>
-          <div className="mastery-divider"></div>
-          <p className="mastery-subtitle">A curated selection of my specialized technical stack and professional proficiency levels.</p>
-        </div>
-
-        <div className="mastery-grid">
-          {/* Frontend */}
-          <div className="mastery-card glass-card gold-rim">
-            <div className="mastery-card-header">
-              <div className="mastery-icon-box">
-                <span className="material-symbols-outlined gold-icon text-3xl">developer_mode_tv</span>
+          {/* Skills Categories */}
+          <div className="skills-column">
+            {skillCategories.map((cat) => (
+              <div key={cat.title} className="skill-category">
+                <div className="skill-category-header">
+                  <div className="skill-category-line"></div>
+                  <h3 className="skill-category-title">
+                    <span className="material-symbols-outlined skill-cat-icon">{cat.icon}</span>
+                    {cat.title}
+                  </h3>
+                </div>
+                <div className="skill-cards">
+                  {cat.skills.map((skill) => (
+                    <div key={skill.name} className="skill-card">
+                      <span className="skill-name">{skill.name}</span>
+                      <span
+                        className="skill-level"
+                        style={{
+                          background: levelStyles[skill.level].bg,
+                          color: levelStyles[skill.level].color,
+                        }}
+                      >
+                        {skill.level}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <h3 className="mastery-card-title">Frontend</h3>
-            </div>
-            <div className="mastery-bars">
-              <SkillBar name="React.js" percentage={95} />
-              <SkillBar name="Tailwind CSS / CSS" percentage={98} />
-              <SkillBar name="TypeScript" percentage={85} />
-            </div>
-          </div>
-
-          {/* Backend */}
-          <div className="mastery-card glass-card gold-rim border-primary-40">
-            <div className="mastery-card-header">
-              <div className="mastery-icon-box">
-                <span className="material-symbols-outlined gold-icon text-3xl">terminal</span>
-              </div>
-              <h3 className="mastery-card-title">Backend</h3>
-            </div>
-            <div className="mastery-bars">
-              <SkillBar name="Laravel & PHP" percentage={92} />
-              <SkillBar name="MySQL / PostgreSQL" percentage={88} />
-              <SkillBar name="REST API Architecture" percentage={94} />
-            </div>
-          </div>
-
-          {/* Media Production */}
-          <div className="mastery-card glass-card gold-rim">
-            <div className="mastery-card-header">
-              <div className="mastery-icon-box">
-                <span className="material-symbols-outlined gold-icon text-3xl">video_settings</span>
-              </div>
-              <h3 className="mastery-card-title">Media Production</h3>
-            </div>
-            <div className="mastery-bars">
-              <SkillBar name="After Effects" percentage={90} />
-              <SkillBar name="Premiere Pro" percentage={95} />
-              <SkillBar name="UI/UX Design" percentage={82} />
-            </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
-  );
-};
-
-const SkillBar = ({ name, percentage }) => {
-  return (
-    <div className="skill-bar-container">
-      <div className="skill-info">
-        <span className="skill-name">{name}</span>
-        <span className="skill-percentage">{percentage}%</span>
-      </div>
-      <div className="skill-track">
-        <div className="skill-fill" style={{ width: `${percentage}%` }}></div>
-      </div>
-    </div>
   );
 };
 
