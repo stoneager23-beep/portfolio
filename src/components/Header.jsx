@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Header.css';
-import CvFile from '../assets/resume-faisal-husnain.pdf';
+
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,7 +26,7 @@ const Header = () => {
                 </nav>
 
                 <div className="action-section">
-                    <a href={CvFile} download="resume-faisal-husnain.pdf" className="cv-btn">
+                    <a href="/resume-faisal-husnain.pdf" download="resume-faisal-husnain.pdf" className="cv-btn">
                         <span className="material-symbols-outlined cv-icon">download</span>
                         CV
                     </a>
@@ -46,7 +46,7 @@ const Header = () => {
                     <a href="#projects" onClick={toggleMobileMenu}>Work</a>
                     <a href="#about" onClick={toggleMobileMenu}>Skills</a>
                     <a href="#experience" onClick={toggleMobileMenu}>Experience</a>
-                    <a href={CvFile} download="resume-faisal-husnain.pdf" className="mobile-cv-btn" onClick={toggleMobileMenu}>
+                    <a href="/resume-faisal-husnain.pdf" download="resume-faisal-husnain.pdf" className="mobile-cv-btn" onClick={toggleMobileMenu}>
                         <span className="material-symbols-outlined">download</span> Download CV
                     </a>
                 </nav>
