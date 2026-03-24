@@ -13,42 +13,41 @@ const Header = () => {
         <header className="site-header">
             <div className="header-container">
                 <div className="logo-section">
-                    <div className="logo-icon luxury-border gold-glow">
-                        <span className="material-symbols-outlined">temp_preferences_custom</span>
-                    </div>
-                    <h2 className="logo-text">Husnain Faisal</h2>
+                    <a href="#hero" className="logo-mark">
+                        <span className="logo-letter">H</span>
+                    </a>
+                    <a href="#hero" className="logo-text">Husnain Faisal</a>
                 </div>
 
-                <nav className="main-nav glass-card">
-                    <a href="#hero">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#projects">Portfolio</a>
+                <nav className="main-nav">
+                    <a href="#projects">Work</a>
+                    <a href="#about">Skills</a>
                     <a href="#experience">Experience</a>
                 </nav>
 
                 <div className="action-section">
-                    <a href={CvFile} download="Husnain-Faisal-CV.pdf" className="cv-btn glass-card group">
-                        <span className="material-symbols-outlined text-gold mr-2 text-sm group-hover:animate-bounce">download</span>
+                    <a href={CvFile} download="cv-faisal-husnain.pdf" className="cv-btn">
+                        <span className="material-symbols-outlined cv-icon">download</span>
                         CV
                     </a>
-                    <a href="#experience" className="inquiry-btn luxury-border gold-glow" style={{ textDecoration: 'none' }}>
+                    <a href="#experience" className="inquiry-btn">
                         Inquiry
                     </a>
-                    <button className="mobile-menu-btn text-gold" onClick={toggleMobileMenu}>
+                    <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
                         <span className="material-symbols-outlined">{isMobileMenuOpen ? 'close' : 'menu'}</span>
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu Overlay */}
+            {/* Mobile Menu */}
             <div className={`mobile-nav-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
                 <nav className="mobile-nav-links">
                     <a href="#hero" onClick={toggleMobileMenu}>Home</a>
-                    <a href="#about" onClick={toggleMobileMenu}>About</a>
-                    <a href="#projects" onClick={toggleMobileMenu}>Portfolio</a>
+                    <a href="#projects" onClick={toggleMobileMenu}>Work</a>
+                    <a href="#about" onClick={toggleMobileMenu}>Skills</a>
                     <a href="#experience" onClick={toggleMobileMenu}>Experience</a>
-                    <a href={CvFile} download="Husnain-Faisal-CV.pdf" className="mobile-cv-btn" onClick={toggleMobileMenu}>
-                        <span className="material-symbols-outlined text-sm mr-2">download</span> Download CV
+                    <a href={CvFile} download="cv-faisal-husnain.pdf" className="mobile-cv-btn" onClick={toggleMobileMenu}>
+                        <span className="material-symbols-outlined">download</span> Download CV
                     </a>
                 </nav>
             </div>

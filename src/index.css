@@ -1,23 +1,41 @@
 :root {
-  --font-sans: 'Inter', sans-serif;
-  --font-display: 'Plus Jakarta Sans', sans-serif;
-  --font-serif: 'Playfair Display', serif;
-  --font-hero: 'Montserrat', sans-serif;
+  /* Typography */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-accent: 'Playfair Display', serif;
+  --font-label: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
 
-  /* Colors */
+  /* Core Palette */
   --bg-dark: #0a0a0b;
-  --charcoal: #121212;
+  --surface: #131314;
+  --surface-container-low: #1c1b1c;
+  --surface-container: #201f20;
+  --surface-container-high: #2a2a2b;
+  --surface-container-highest: #353436;
+
+  /* Accent Colors */
+  --primary: #f2ca50;
+  --primary-container: #d4af37;
   --color-gold: #D4AF37;
   --color-gold-light: #F3E5AB;
   --color-gold-dark: #996515;
-  --text-main: #f3f4f6;
+  --secondary: #a2e7ff;
+  --secondary-container: #00d2fd;
+
+  /* Text */
+  --on-surface: #e5e2e3;
+  --on-surface-variant: #d0c5af;
+  --text-main: #e5e2e3;
   --text-muted: #9ca3af;
+  --outline: #99907c;
+  --outline-variant: #4d4635;
 
   /* Utilities */
-  --gold-gradient: linear-gradient(to right, #F3E5AB, #D4AF37, #996515);
+  --gold-gradient: linear-gradient(45deg, #d4af37, #f2ca50);
   --gold-glow: rgba(212, 175, 55, 0.15);
 }
 
+/* ---- Reset & Base ---- */
 html {
   scroll-behavior: smooth;
 }
@@ -29,9 +47,10 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
+  font-weight: 300;
   background-color: var(--bg-dark);
-  color: var(--text-main);
+  color: var(--on-surface);
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
@@ -45,7 +64,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 a {
@@ -59,19 +78,19 @@ button {
   cursor: pointer;
 }
 
-/* Glass & Premium UI Utilities */
+/* ---- Glass & Premium Utilities ---- */
 .glass-card {
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.12);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .luxury-border {
   border: 1px solid transparent;
-  background: linear-gradient(#121212, #121212) padding-box,
-    linear-gradient(to right, #D4AF37, #F3E5AB, #996515) border-box;
+  background: linear-gradient(var(--surface-container), var(--surface-container)) padding-box,
+    var(--gold-gradient) border-box;
 }
 
 .gold-glow {
@@ -90,7 +109,7 @@ button {
 }
 
 .gold-rim {
-  box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.1), 0 0 20px rgba(212, 175, 55, 0.05);
+  box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.08), 0 0 20px rgba(212, 175, 55, 0.04);
 }
 
 .gold-icon {
@@ -99,7 +118,7 @@ button {
 }
 
 .pill-gold {
-  border: 1px solid var(--color-gold);
+  border: 1px solid rgba(212, 175, 55, 0.3);
   color: var(--color-gold);
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
@@ -109,22 +128,86 @@ button {
   text-transform: uppercase;
 }
 
-.grainy-bg {
-  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAoFHwwNhzOQCjlSXGOEAUFOAwHxop8Y_8LHElYI1hj5jraAVQvg3rPwGZcPG5KSFIejMCa-VBiTwNC0OYVXE_tJKgU31t6LkSReW0fxWYWYME6q7qTmqjfoYKzPbuhBKwgqt6YSWv57s_e1pP9gHp9Ucf00fcg0C8VcotGJx5mLx_Q6rrCtbzuu6EKzCzcADj0UriHLIUAqOCB8bazIaHsRGWOVswZeBLxifjr1apN4DK4dSN0TOMsriKc6xWsc8UzbiClJmiTqg');
-  background-blend-mode: overlay;
+/* ---- Typography Utilities ---- */
+.serif-accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--primary);
 }
 
-.bg-mesh {
-  background: radial-gradient(circle at 50% -20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 0% 100%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+.label-text {
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--primary);
 }
 
-.serif-gold {
-  font-family: var(--font-serif);
-  color: var(--color-gold);
+.section-badge {
+  display: inline-block;
+  padding: 0.375rem 1.25rem;
+  border-radius: 9999px;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  font-family: var(--font-label);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
 }
 
-/* Cinematic Scroll Reveals */
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 900;
+  color: var(--on-surface);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.section-heading .accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--primary);
+  -webkit-text-fill-color: var(--primary);
+}
+
+/* ---- Particle Background ---- */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---- Progress Bar ---- */
+.progress-bar {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 40vh;
+  background: rgba(255, 255, 255, 0.06);
+  z-index: 40;
+  border-radius: 2px;
+}
+
+.progress-bar-fill {
+  width: 100%;
+  background: var(--primary);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+  transition: height 0.3s ease;
+}
+
+/* ---- Scroll Reveals ---- */
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(40px);
@@ -138,4 +221,25 @@ button {
   transform: translateY(0);
 }
 
-/* Base tailwind-like util overrides if needed, though we will try to use tailwind directly since it's installed via Vite (wait, is it installed?) package.json shows tailwind? */
+/* ---- Section Spacing ---- */
+.section-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---- Marquee ---- */
+.marquee-track {
+  display: flex;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}

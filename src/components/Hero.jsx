@@ -1,6 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Hero.css';
 
+const techItems = [
+  'MANAGEMENT SYSTEM', 'ADOBE PREMIERE PRO', 'AFTER EFFECTS VISUALS',
+  'TAILWIND CSS', 'LARAVEL FRAMEWORK', 'REACT.JS', 'REST API',
+  'COLOR GRADING', 'MOTION GRAPHICS', 'MYSQL DATABASE'
+];
+
 const Hero = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const dropdownRef = useRef(null);
@@ -20,73 +26,85 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="hero-section grainy-bg">
-      <div className="hero-background-glows">
-        <div className="glow-circle glow-1" />
-        <div className="glow-circle glow-2" />
-        <div className="glow-circle glow-3" />
+    <section id="hero" className="hero-section">
+      {/* Golden arc decorations */}
+      <div className="hero-arcs">
+        <svg viewBox="0 0 600 600" className="arc-svg">
+          <circle cx="300" cy="300" r="250" className="arc-ring arc-1" />
+          <circle cx="300" cy="300" r="200" className="arc-ring arc-2" />
+          <circle cx="300" cy="300" r="150" className="arc-ring arc-3" />
+        </svg>
       </div>
 
       <div className="hero-content">
-        <div className="hero-badge glass-card">
+        <div className="hero-badge">
           <span className="ping-dot-container">
             <span className="ping-dot-animate"></span>
             <span className="ping-dot"></span>
           </span>
-          <span className="badge-text">Bespoke Digital Experiences</span>
+          <span className="label-text" style={{ color: 'var(--primary)', marginBottom: 0 }}>Open to Work &amp; Freelance</span>
         </div>
 
         <h1 className="hero-title">
-          Husnain <span className="text-gold-gradient italic serif-gold hero-title-highlight">Faisal</span>
+          <span className="hero-title-line1">CREATIVE</span>
+          <span className="hero-title-line2 serif-accent">Architect</span>
         </h1>
 
-        <p className="hero-subtitle">
-          Full-Stack Developer <span className="subtitle-divider">|</span> Laravel Specialist <span className="subtitle-divider">|</span> Video Editor
+        <p className="hero-role">CINEMATIC POST-EDITOR</p>
+
+        <p className="hero-tagline">
+          Architecting high-fidelity digital ecosystems where full-stack precision meets the artistry of cinematic storytelling.
         </p>
 
         <div className="hero-actions" ref={dropdownRef}>
-          <div className="dropdown-container">
+          <div className={`dropdown-container ${activeDropdown === 'projects' ? 'active-dropdown' : ''}`}>
             <button
-              className="primary-btn luxury-border gold-glow group"
+              className="primary-btn"
               onClick={() => toggleDropdown('projects')}
             >
-              <span className="relative z-10">View Projects</span>
-              <span className={`material-symbols-outlined icon-arrow transition-transform duration-300 ${activeDropdown === 'projects' ? 'rotate-90' : ''}`}>chevron_right</span>
+              <span>View Projects</span>
+              <span className={`material-symbols-outlined icon-arrow ${activeDropdown === 'projects' ? 'rotate-90' : ''}`}>chevron_right</span>
             </button>
-
-            <div className={`dropdown-menu glass-card ${activeDropdown === 'projects' ? 'show' : ''}`}>
-              <a href="#projects" className="dropdown-item" onClick={() => setActiveDropdown(null)}>
-                <span className="material-symbols-outlined">code</span>
-                Web Development
+            <div className={`dropdown-menu ${activeDropdown === 'projects' ? 'show' : ''}`}>
+              <a href="#projects" className="dropdown-item" onClick={() => setTimeout(() => setActiveDropdown(null), 150)}>
+                <span className="material-symbols-outlined">code</span> Web Development
               </a>
-              <a href="#projects" className="dropdown-item" onClick={() => setActiveDropdown(null)}>
-                <span className="material-symbols-outlined">movie</span>
-                Video Editing
+              <a href="#projects" className="dropdown-item" onClick={() => setTimeout(() => setActiveDropdown(null), 150)}>
+                <span className="material-symbols-outlined">movie</span> Video Editing
               </a>
             </div>
           </div>
 
-          <div className="dropdown-container">
+          <div className={`dropdown-container ${activeDropdown === 'contact' ? 'active-dropdown' : ''}`}>
             <button
-              className="secondary-btn glass-card group"
+              className="secondary-btn"
               onClick={() => toggleDropdown('contact')}
             >
-              <span className="material-symbols-outlined text-gold">content_copy</span>
+              <span className="material-symbols-outlined" style={{ color: 'var(--secondary)' }}>mail</span>
               <span>Contact Me</span>
-              <span className={`material-symbols-outlined text-sm ml-2 transition-transform duration-300 ${activeDropdown === 'contact' ? 'rotate-180' : ''}`}>expand_more</span>
+              <span className={`material-symbols-outlined text-sm ${activeDropdown === 'contact' ? 'rotate-180' : ''}`}>expand_more</span>
             </button>
-
-            <div className={`dropdown-menu glass-card contact-menu ${activeDropdown === 'contact' ? 'show' : ''}`}>
-              <a href="mailto:husnain@email.com" className="dropdown-item" onClick={() => setActiveDropdown(null)}>
-                <span className="material-symbols-outlined">mail</span>
-                Email directly
+            <div className={`dropdown-menu ${activeDropdown === 'contact' ? 'show' : ''}`}>
+              <a href="mailto:stoneager23@gmail.com" className="dropdown-item" onClick={() => setTimeout(() => setActiveDropdown(null), 150)}>
+                <span className="material-symbols-outlined">mail</span> Email directly
               </a>
-              <a href="#experience" className="dropdown-item" onClick={() => setActiveDropdown(null)}>
-                <span className="material-symbols-outlined">chat</span>
-                Use inquiry form
+              <a href="#experience" className="dropdown-item" onClick={() => setTimeout(() => setActiveDropdown(null), 150)}>
+                <span className="material-symbols-outlined">terminal</span> Use inquiry form
               </a>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Tech ticker marquee */}
+      <div className="hero-marquee">
+        <div className="marquee-track">
+          {[...techItems, ...techItems].map((item, i) => (
+            <span key={i} className="marquee-item">
+              <span className="marquee-dot"></span>
+              {item}
+            </span>
+          ))}
         </div>
       </div>
 

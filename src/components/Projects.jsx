@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Projects.css';
 
 const projectsData = [
   {
     title: 'Factory Management System',
+    subtitle: 'ARCHITECTURAL SYSTEM',
     category: 'Full-Stack Development',
+    filterTag: 'laravel',
     imgSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBM2UAInvgsNolQvhltC-1VcQFyqoBwb3GJdFJJ6Iyfg7rnCN0gng5jPelYq_4MDrPskYPnQEtxDVo5SduuHvViNBIDdRyF4h7ePXRT5VvmhBrmHULZTqOJ1-c7NxoqCqFTri88JUROGEjYNw9Y4uSbCveW7touB-OAWKWvHltMqLCe0qh-CnRLfo57fqvqvt3nmebMiDbV1iaOd8Stxu2HXQNymcF4Uz8GbMFdftIrS5wH-KGSEf-iFA1EtCnNwG-4lFCAXYaXBw',
     desc: 'A Laravel-based system to manage articles, fabrics, inventory, invoices, and customers. Features role-based access control and RESTful APIs.',
     tags: ['Laravel', 'PHP', 'MySQL', 'Bootstrap'],
     demoLink: "https://github.com/stoneager23-beep/factory-management-system",
     codeLink: "https://github.com/stoneager23-beep/factory-management-system",
-    icon: 'arrow_outward'
+    icon: 'code',
   },
   {
     title: 'Fast Motion Graphics Showreel',
+    subtitle: 'CINEMATIC REEL',
     category: 'Motion Graphics',
+    filterTag: 'cinematic',
     imgSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCcP3ed62JUidbotCyEiUeAj0He2IGlhHW7iE_1AdYU7XhZlwpVRsKdQoC5NvLxN5T7-bx-6JlrvOl21E7KnkNS9-MsLzIrw2LQ7EpbCzbXpPzczqydKEr7JLIWR0QjpWAYXRQ6yenjIbV4FVjVetupMyfCBlJoMh627Uc7d5MK3grOFTeIAO2ooIw1RwZaeus9DohfwlKlcuMFe6t9GNT1mLcCXts08iWrmdmOGbvX2ovVFxGpHyzCZDx8xs2VZNJeNEdqSIzM7Q',
     desc: 'A compilation of high-impact motion graphics, intros, and promotional videos created using Adobe After Effects and Premiere Pro.',
     tags: ['After Effects', 'Premiere Pro', '4K Editing'],
@@ -24,8 +28,10 @@ const projectsData = [
     isVideo: true
   },
   {
-    title: 'Cinematic gaming Edit',
+    title: 'Cinematic Gaming Edit',
+    subtitle: 'POST PRODUCTION',
     category: 'Post Production',
+    filterTag: 'cinematic',
     imgSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBorfHrziIWaemljFmw2GWXA6ouriOa4zOY38RK0t49SZxVuVdOIPWbpsQDCwnD3_OXtLMU84VWldHmMtqtOE_6_UANWvUUuN75SUHypzC6m80pRr409Hh30qvGEhTPLhnZ_jYkKetAJvtCHZwQx4zXR9BH6iWuT5lWd5kAMADHQyJxEYpeWh0raLU_IIGhh_nU5dWdhcCb9WLPUfOTYV9itRR6_6wTDO5j0Os3-o3PGCQmSuVxfMtNO_f-ED3AMerd_PK9VjYrHQ',
     desc: 'Example of color grading and sound design skills in a gaming content of a fiverr client.',
     tags: ['Color Grading', 'Sound Design', 'Storytelling'],
@@ -37,88 +43,82 @@ const projectsData = [
 ];
 
 const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const filteredProjects = projectsData.filter((project) => {
+    if (activeFilter === 'all') return true;
+    return project.filterTag === activeFilter;
+  });
+
   return (
     <section id="projects" className="projects-section">
-      <div className="projects-header-area">
-        <div className="projects-header-text">
-          <span className="curated-badge bg-primary-5">Curated Selection</span>
-          <h2 className="projects-title">
-            Featured <br />
-            <span className="text-gold-gradient italic serif-gold">Projects</span>
+      <div className="section-container">
+        <div className="projects-header">
+          <span className="section-badge">Featured Works</span>
+          <h2 className="section-heading">
+            THE <span className="accent">gallery</span>
           </h2>
-          <p className="projects-subtitle">
-            A diverse collection of digital experiences, spanning high-performance software architecture to cinematic visual storytelling.
-          </p>
         </div>
 
-        <div className="stats-box">
-          <div className="stat-item">
-            <div style={{ display: 'flex', alignItems: 'baseline' }}>
-              <span className="stat-value">24</span>
-              <span className="stat-unit" style={{ color: 'var(--color-gold)' }}>+</span>
-            </div>
-            <span className="stat-label">Projects</span>
-          </div>
-          <div className="stat-item">
-            <div style={{ display: 'flex', alignItems: 'baseline' }}>
-              <span className="stat-value">98</span>
-              <span className="stat-unit" style={{ color: 'var(--color-gold)' }}>%</span>
-            </div>
-            <span className="stat-label">Satisfaction</span>
+        <div className="filter-bar">
+          <span className="filter-label">Navigate Portfolio</span>
+          <div className="filter-buttons">
+            {[
+              { key: 'all', label: 'All Works' },
+              { key: 'laravel', label: 'Laravel Architecture' },
+              { key: 'cinematic', label: 'Cinematic Reels' },
+            ].map((f) => (
+              <button
+                key={f.key}
+                className={`filter-btn ${activeFilter === f.key ? 'active' : ''}`}
+                onClick={() => setActiveFilter(f.key)}
+              >
+                {f.label}
+              </button>
+            ))}
           </div>
         </div>
-      </div>
 
-      <div className="filter-buttons">
-        <button className="filter-btn active-filter shadow-primary-20">All Works</button>
-        <button className="filter-btn default-filter">Laravel Architecture</button>
-        <button className="filter-btn default-filter">Cinematic Reels</button>
-      </div>
-
-      <div className="projects-grid">
-        {projectsData.map((project, index) => (
-          <div key={index} className="glass-card project-card">
-            <div className="project-image-wrapper">
-              <img src={project.imgSrc} alt={project.title} className="project-img img-grayscale" />
-              <div className="image-overlay"></div>
-              {project.isVideo && (
-                <div className="video-overlay">
-                  <div className="play-button">
-                    <span className="material-symbols-outlined play-icon" style={{ color: 'white' }}>play_arrow</span>
+        <div className="projects-grid">
+          {filteredProjects.map((project, index) => (
+            <a
+              key={index}
+              href={project.demoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-card"
+            >
+              <div className="project-image-wrapper">
+                <img src={project.imgSrc} alt={project.title} className="project-img" />
+                <div className="project-overlay">
+                  <div className="overlay-content">
+                    <span className="overlay-subtitle">{project.subtitle}</span>
+                    <h3 className="overlay-title">{project.title}</h3>
+                    {project.isVideo && (
+                      <span className="play-btn">
+                        <span className="material-symbols-outlined">play_arrow</span>
+                      </span>
+                    )}
                   </div>
                 </div>
-              )}
-            </div>
-
-            <div className="project-info">
-              <div className="project-info-header">
-                <h3 className="project-card-title">{project.title}</h3>
-                <span className="material-symbols-outlined project-icon">{project.icon}</span>
               </div>
-
-              <p style={{ fontSize: '0.6875rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-gold)', marginBottom: '0.75rem' }}>
-                {project.category}
-              </p>
-
-              <p className="project-desc">{project.desc}</p>
-
-              <div className="project-tags">
-                {project.tags.map(tag => (
-                  <span key={tag} className="pill-gold">{tag}</span>
-                ))}
+              <div className="project-info">
+                <div className="project-tags">
+                  {project.tags.map(tag => (
+                    <span key={tag} className="pill-gold">{tag}</span>
+                  ))}
+                </div>
               </div>
+            </a>
+          ))}
+        </div>
 
-              <div className="project-links">
-                <a href={project.demoLink} className="project-link-btn" target="_blank" rel="noopener noreferrer">
-                  Live Demo <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>open_in_new</span>
-                </a>
-                <a href={project.codeLink} className="project-link-btn secondary-btn" target="_blank" rel="noopener noreferrer">
-                  Code <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>code</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
+        <div className="projects-footer">
+          <a href="https://github.com/stoneager23-beep" target="_blank" rel="noopener noreferrer" className="see-more-link">
+            <span>See More Projects</span>
+            <span className="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
       </div>
     </section>
   );
