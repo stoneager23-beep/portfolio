@@ -48,6 +48,12 @@ const Skills = () => {
           padding: 6rem 0;
         }
 
+        .container {
+          max-width: 80rem;
+          margin: 0 auto;
+          padding: 0 2.5rem;
+        }
+
         .section-title {
           font-size: 2.5rem;
           margin-bottom: 1rem;
