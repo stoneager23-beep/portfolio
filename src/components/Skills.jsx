@@ -1,21 +1,36 @@
 import React from 'react';
-import { Code, Palette, Terminal, Database, Layout, Smartphone, PlayCircle, Globe } from 'lucide-react';
+import { Code, Server, Database, Wrench, ClipboardCheck, PlayCircle } from 'lucide-react';
 
 const skillsData = [
   {
-    category: "Video & Motion",
-    icon: <PlayCircle className="text-secondary" size={32} />,
-    skills: ["Premier Pro", "After Effects", "Motion Graphics", "Color Grading", "Sound Design", "DaVinci Resolve"]
+    category: "Frontend",
+    icon: <Code className="text-secondary" size={32} />,
+    skills: ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS"]
   },
   {
-    category: "Web Development",
-    icon: <Code className="text-primary" size={32} />,
-    skills: ["PHP", "Laravel", "MySQL", "Rest APIs", "HTML/CSS", "Bootstrap", "Git"]
+    category: "Backend",
+    icon: <Server className="text-primary" size={32} />,
+    skills: ["Laravel", "PHP", "Node.js", "Express.js"]
   },
   {
-    category: "Languages & Tools",
-    icon: <Globe className="text-accent" size={32} />,
-    skills: ["English", "Urdu", "Korean", "VS Code", "Canva"]
+    category: "Database",
+    icon: <Database className="text-accent" size={32} />,
+    skills: ["MySQL", "MongoDB"]
+  },
+  {
+    category: "Tools",
+    icon: <Wrench className="text-secondary" size={32} />,
+    skills: ["Git", "GitHub", "Vercel", "Postman", "Docker Basics"]
+  },
+  {
+    category: "Testing",
+    icon: <ClipboardCheck className="text-primary" size={32} />,
+    skills: ["Manual Testing", "ERP Testing", "Bug Reporting", "Test Cases"]
+  },
+  {
+    category: "Creative / Video Editing",
+    icon: <PlayCircle className="text-accent" size={32} />,
+    skills: ["Adobe Premiere Pro", "After Effects", "Cinematic Editing", "Motion Graphics", "Color Grading", "Visual Storytelling"]
   }
 ];
 
@@ -24,7 +39,7 @@ const Skills = () => {
     <section id="skills" className="section-padding">
       <div className="container">
         <h2 className="section-title text-center">My <span className="text-gradient">Skills</span></h2>
-        <p className="section-subtitle text-center">Technologies I work with to bring ideas to life.</p>
+        <p className="section-subtitle text-center">A developer-first toolkit, supported by testing discipline and cinematic visual craft.</p>
 
         <div className="skills-grid">
           {skillsData.map((group, index) => (
