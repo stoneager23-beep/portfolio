@@ -59,14 +59,30 @@ const Experience = () => {
                                 <div className="timeline-line-glow"></div>
                             </div>
 
-                            {/* Item 1 */}
                             <div className="timeline-item">
                                 <div className="timeline-icon hex-icon active">
-                                    <span className="material-symbols-outlined">code</span>
+                                    <span className="material-symbols-outlined">bug_report</span>
                                 </div>
                                 <div className="timeline-card active">
                                     <div className="timeline-card-top">
-                                        <span className="date-badge active">2024—PRESENT</span>
+                                        <span className="date-badge active">MAY 2026 - PRESENT</span>
+                                    </div>
+                                    <h3 className="timeline-job-title">ERP Testing Intern</h3>
+                                    <p className="timeline-company">Netroots Technology <span className="serif-accent">ERP QA</span></p>
+                                    <p className="timeline-desc">
+                                        Testing school ERP modules, workflows, validations, reports, and business logic across inventory, purchase, GRN, HR, finance, and school management. Creating clear bug reports with steps to reproduce, expected result, and actual result while verifying forms, permissions, dashboards, data flow, and module behavior.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Item 1 */}
+                            <div className="timeline-item">
+                                <div className="timeline-icon hex-icon">
+                                    <span className="material-symbols-outlined">code</span>
+                                </div>
+                                <div className="timeline-card">
+                                    <div className="timeline-card-top">
+                                        <span className="date-badge">2024 - PRESENT</span>
                                     </div>
                                     <h3 className="timeline-job-title">Full-Stack Laravel Developer</h3>
                                     <p className="timeline-company">Freelance <span className="serif-accent">Consultant</span></p>
@@ -83,7 +99,7 @@ const Experience = () => {
                                 </div>
                                 <div className="timeline-card">
                                     <div className="timeline-card-top">
-                                        <span className="date-badge">2025—CURRENT</span>
+                                        <span className="date-badge">2025 - CURRENT</span>
                                     </div>
                                     <h3 className="timeline-job-title">Senior Video Editor</h3>
                                     <p className="timeline-company">Pulse Media <span className="serif-accent">Creative Lab</span></p>
@@ -100,7 +116,7 @@ const Experience = () => {
                                 </div>
                                 <div className="timeline-card">
                                     <div className="timeline-card-top">
-                                        <span className="date-badge">2023—2025</span>
+                                        <span className="date-badge">2023 - 2025</span>
                                     </div>
                                     <h3 className="timeline-job-title">UI/UX Designer</h3>
                                     <p className="timeline-company">Freelance <span className="serif-accent">Projects</span></p>
@@ -214,3 +230,4 @@ const Experience = () => {
 };
 
 export default Experience;
+

@@ -6,9 +6,9 @@ import './Hero.css';
 const Hero3DStage = lazy(() => import('./visuals/Hero3DStage'));
 
 const techItems = [
-  'MANAGEMENT SYSTEM', 'ADOBE PREMIERE PRO', 'AFTER EFFECTS VISUALS',
-  'TAILWIND CSS', 'LARAVEL FRAMEWORK', 'REACT.JS', 'REST API',
-  'COLOR GRADING', 'MOTION GRAPHICS', 'MYSQL DATABASE'
+  'LARAVEL FRAMEWORK', 'REACT.JS', 'NODE.JS', 'REST API',
+  'MYSQL DATABASE', 'ERP DASHBOARDS', 'TAILWIND CSS', 'POSTMAN',
+  'ADOBE PREMIERE PRO', 'AFTER EFFECTS VISUALS', 'MOTION GRAPHICS'
 ];
 
 const canRenderWebGL = () => {
@@ -106,10 +106,10 @@ const Hero = () => {
           <span className="hero-title-line2 serif-accent">Architect</span>
         </h1>
 
-        <p className="hero-role">CINEMATIC POST-EDITOR</p>
+        <p className="hero-role">FULL-STACK WEB DEVELOPER</p>
 
         <p className="hero-tagline">
-          Architecting high-fidelity digital ecosystems where full-stack precision meets the artistry of cinematic storytelling.
+          I build modern web applications, ERP dashboards, and business systems using Laravel, React, Node.js, and MySQL - blending clean code with cinematic digital experiences.
         </p>
 
         <div className="hero-actions" ref={dropdownRef}>
