@@ -6,6 +6,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
+import ScrollReveal from './components/animations/ScrollReveal';
 import './index.css';
 
 function ParticleCanvas() {
@@ -17,6 +18,7 @@ function ParticleCanvas() {
         const ctx = canvas.getContext('2d');
         let animationId;
         let particles = [];
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         const resize = () => {
             canvas.width = window.innerWidth;
@@ -45,28 +47,36 @@ function ParticleCanvas() {
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(212, 175, 55, ${p.opacity})`;
                 ctx.fill();
-                p.x += p.speedX;
-                p.y += p.speedY;
-                if (p.x < 0) p.x = canvas.width;
-                if (p.x > canvas.width) p.x = 0;
-                if (p.y < 0) p.y = canvas.height;
-                if (p.y > canvas.height) p.y = 0;
+                if (!reducedMotion) {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    if (p.x < 0) p.x = canvas.width;
+                    if (p.x > canvas.width) p.x = 0;
+                    if (p.y < 0) p.y = canvas.height;
+                    if (p.y > canvas.height) p.y = 0;
+                }
             });
-            animationId = requestAnimationFrame(draw);
+            if (!reducedMotion) {
+                animationId = requestAnimationFrame(draw);
+            }
         };
 
         resize();
         createParticles();
         draw();
 
-        window.addEventListener('resize', () => {
+        const handleResize = () => {
             resize();
             createParticles();
-        });
+            cancelAnimationFrame(animationId);
+            draw();
+        };
+
+        window.addEventListener('resize', handleResize);
 
         return () => {
             cancelAnimationFrame(animationId);
-            window.removeEventListener('resize', resize);
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 
@@ -94,37 +104,9 @@ function ProgressBar() {
 }
 
 function App() {
-    useEffect(() => {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1,
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-revealed');
-                }
-            });
-        }, observerOptions);
-
-        const revealElements = document.querySelectorAll('.reveal-on-scroll, section, .project-card, .timeline-item, .skill-card');
-        revealElements.forEach(el => {
-            if (!el.classList.contains('reveal-on-scroll')) {
-                el.classList.add('reveal-on-scroll');
-            }
-            observer.observe(el);
-        });
-
-        return () => {
-            revealElements.forEach(el => observer.unobserve(el));
-            observer.disconnect();
-        };
-    }, []);
-
     return (
         <div style={{ position: 'relative', minHeight: '100vh', width: '100%', overflowX: 'hidden' }}>
+            <ScrollReveal />
             <ParticleCanvas />
             <ProgressBar />
             <Header />

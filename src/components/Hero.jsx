@@ -1,5 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { Suspense, lazy, useState, useRef, useEffect } from 'react';
+import CinematicIntro from './visuals/CinematicIntro';
+import usePrefersReducedMotion from '../hooks/usePrefersReducedMotion';
 import './Hero.css';
+
+const Hero3DStage = lazy(() => import('./visuals/Hero3DStage'));
 
 const techItems = [
   'MANAGEMENT SYSTEM', 'ADOBE PREMIERE PRO', 'AFTER EFFECTS VISUALS',
@@ -7,8 +11,35 @@ const techItems = [
   'COLOR GRADING', 'MOTION GRAPHICS', 'MYSQL DATABASE'
 ];
 
+const canRenderWebGL = () => {
+  if (typeof window === 'undefined') return false;
+
+  try {
+    const canvas = document.createElement('canvas');
+    return Boolean(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+  } catch {
+    return false;
+  }
+};
+
+const getHeroVisualMode = (prefersReducedMotion = false) => {
+  if (typeof window === 'undefined') {
+    return { compact: false, shouldLoad3D: false };
+  }
+
+  const compact = window.matchMedia('(max-width: 640px)').matches;
+  const saveData = navigator.connection?.saveData;
+
+  return {
+    compact,
+    shouldLoad3D: !compact && !saveData && !prefersReducedMotion && canRenderWebGL(),
+  };
+};
+
 const Hero = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const [visualMode, setVisualMode] = useState(() => getHeroVisualMode(prefersReducedMotion));
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -21,12 +52,25 @@ const Hero = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const updateHeroVisualMode = () => {
+      setVisualMode(getHeroVisualMode(prefersReducedMotion));
+    };
+
+    updateHeroVisualMode();
+    window.addEventListener('resize', updateHeroVisualMode);
+
+    return () => window.removeEventListener('resize', updateHeroVisualMode);
+  }, [prefersReducedMotion]);
+
   const toggleDropdown = (menu) => {
     setActiveDropdown(activeDropdown === menu ? null : menu);
   };
 
   return (
-    <section id="hero" className="hero-section">
+    <section id="hero" className="hero-section hero-intro-pending">
+      <CinematicIntro compact={visualMode.compact || !visualMode.shouldLoad3D} />
+
       {/* Golden arc decorations */}
       <div className="hero-arcs">
         <svg viewBox="0 0 600 600" className="arc-svg">
@@ -34,6 +78,18 @@ const Hero = () => {
           <circle cx="300" cy="300" r="200" className="arc-ring arc-2" />
           <circle cx="300" cy="300" r="150" className="arc-ring arc-3" />
         </svg>
+      </div>
+
+      <div className="hero-visual-layer" aria-hidden="true">
+        <div className="hero-visual-inner">
+          {visualMode.shouldLoad3D ? (
+            <Suspense fallback={<div className="hero-3d-fallback" />}>
+              <Hero3DStage />
+            </Suspense>
+          ) : (
+            <div className="hero-3d-static" />
+          )}
+        </div>
       </div>
 
       <div className="hero-content">

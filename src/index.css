@@ -21,6 +21,9 @@
   --color-gold-dark: #996515;
   --secondary: #a2e7ff;
   --secondary-container: #00d2fd;
+  --accent-cyan: #24ddff;
+  --accent-blue: #4c7dff;
+  --accent-purple: #8f6cff;
 
   /* Text */
   --on-surface: #e5e2e3;
@@ -33,6 +36,11 @@
   /* Utilities */
   --gold-gradient: linear-gradient(45deg, #d4af37, #f2ca50);
   --gold-glow: rgba(212, 175, 55, 0.15);
+
+  /* Compatibility aliases for older components */
+  --color-primary: var(--primary);
+  --color-text-main: var(--on-surface);
+  --color-text-muted: var(--text-muted);
 }
 
 /* ---- Reset & Base ---- */
@@ -49,7 +57,10 @@ html {
 body {
   font-family: var(--font-body);
   font-weight: 300;
-  background-color: var(--bg-dark);
+  background:
+    radial-gradient(circle at 72% 0%, rgba(36, 221, 255, 0.06), transparent 28rem),
+    radial-gradient(circle at 12% 8%, rgba(143, 108, 255, 0.055), transparent 24rem),
+    var(--bg-dark);
   color: var(--on-surface);
   line-height: 1.6;
   overflow-x: hidden;
@@ -102,6 +113,25 @@ button {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.text-accent {
+  color: var(--accent-purple);
 }
 
 .bg-gold-gradient {
@@ -165,7 +195,7 @@ button {
   font-weight: 900;
   color: var(--on-surface);
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .section-heading .accent {
@@ -241,5 +271,24 @@ button {
 
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .marquee-track {
+    animation: none;
+    transform: none;
   }
 }
