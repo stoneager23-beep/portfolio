@@ -46,7 +46,7 @@ const Header = () => {
                     <a href="#projects" onClick={toggleMobileMenu}>Work</a>
                     <a href="#about" onClick={toggleMobileMenu}>Skills</a>
                     <a href="#experience" onClick={toggleMobileMenu}>Experience</a>
-                    <a href="/resume-faisal-husnain.pdf" download="resume-faisal-husnain.pdf" className="mobile-cv-btn" onClick={toggleMobileMenu}>
+                    <a href="/resume_Husnain-faisal_2.pdf" download="resume_Husnain-faisal_2.pdf" className="mobile-cv-btn" onClick={toggleMobileMenu}>
                         <span className="material-symbols-outlined">download</span> Download CV
                     </a>
                 </nav>
