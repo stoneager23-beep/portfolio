@@ -26,7 +26,7 @@ const Header = () => {
                 </nav>
 
                 <div className="action-section">
-                    <a href="/resume-faisal-husnain.pdf" download="resume-faisal-husnain.pdf" className="cv-btn">
+                    <a href="/resume_Husnain-faisal_2.pdf" download="resume_Husnain-faisal_2.pdf" className="cv-btn">
                         <span className="material-symbols-outlined cv-icon">download</span>
                         CV
                     </a>
