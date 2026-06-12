@@ -36,7 +36,7 @@ const getHeroVisualMode = (prefersReducedMotion = false) => {
   };
 };
 
-const Hero = () => {
+const Hero = ({ onSelectProjectFilter }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const prefersReducedMotion = usePrefersReducedMotion();
   const [visualMode, setVisualMode] = useState(() => getHeroVisualMode(prefersReducedMotion));
@@ -122,10 +122,24 @@ const Hero = () => {
               <span className={`material-symbols-outlined icon-arrow ${activeDropdown === 'projects' ? 'rotate-90' : ''}`}>chevron_right</span>
             </button>
             <div className={`dropdown-menu ${activeDropdown === 'projects' ? 'show' : ''}`}>
-              <a href="#projects" className="dropdown-item" onClick={() => setTimeout(() => setActiveDropdown(null), 150)}>
+              <a 
+                href="#projects" 
+                className="dropdown-item" 
+                onClick={() => {
+                  onSelectProjectFilter('laravel');
+                  setTimeout(() => setActiveDropdown(null), 150);
+                }}
+              >
                 <span className="material-symbols-outlined">code</span> Web Development
               </a>
-              <a href="#projects" className="dropdown-item" onClick={() => setTimeout(() => setActiveDropdown(null), 150)}>
+              <a 
+                href="#projects" 
+                className="dropdown-item" 
+                onClick={() => {
+                  onSelectProjectFilter('cinematic');
+                  setTimeout(() => setActiveDropdown(null), 150);
+                }}
+              >
                 <span className="material-symbols-outlined">movie</span> Video Editing
               </a>
             </div>
@@ -141,7 +155,11 @@ const Hero = () => {
               <span className={`material-symbols-outlined text-sm ${activeDropdown === 'contact' ? 'rotate-180' : ''}`}>expand_more</span>
             </button>
             <div className={`dropdown-menu ${activeDropdown === 'contact' ? 'show' : ''}`}>
-              <a href="mailto:stoneager23@gmail.com" className="dropdown-item" onClick={() => setTimeout(() => setActiveDropdown(null), 150)}>
+              <a 
+                href="mailto:stoneager23@gmail.com" 
+                className="dropdown-item" 
+                onClick={() => setTimeout(() => setActiveDropdown(null), 300)}
+              >
                 <span className="material-symbols-outlined">mail</span> Email directly
               </a>
               <a href="#experience" className="dropdown-item" onClick={() => setTimeout(() => setActiveDropdown(null), 150)}>

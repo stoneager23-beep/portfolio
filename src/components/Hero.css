@@ -180,7 +180,7 @@
 /* Content */
 .hero-content {
     position: relative;
-    z-index: 10;
+    z-index: 20;
     max-width: 64rem;
     margin: 0 auto;
     text-shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
@@ -475,7 +475,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.04);
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     padding: 1rem 0;
-    z-index: 10;
+    z-index: 5;
 }
 
 .marquee-item {

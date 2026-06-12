@@ -67,9 +67,7 @@ const projectsData = [
   }
 ];
 
-const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
-
+const Projects = ({ activeFilter, setActiveFilter }) => {
   const filteredProjects = projectsData.filter((project) => {
     if (activeFilter === 'all') return true;
     return project.filterTag === activeFilter;

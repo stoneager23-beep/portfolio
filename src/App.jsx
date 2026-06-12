@@ -104,6 +104,8 @@ function ProgressBar() {
 }
 
 function App() {
+    const [projectFilter, setProjectFilter] = useState('all');
+
     return (
         <div style={{ position: 'relative', minHeight: '100vh', width: '100%', overflowX: 'hidden' }}>
             <ScrollReveal />
@@ -111,10 +113,10 @@ function App() {
             <ProgressBar />
             <Header />
             <main style={{ position: 'relative', zIndex: 1 }}>
-                <Hero />
+                <Hero onSelectProjectFilter={setProjectFilter} />
                 <About />
                 <Skills />
-                <Projects />
+                <Projects activeFilter={projectFilter} setActiveFilter={setProjectFilter} />
                 <Experience />
             </main>
             <Footer />
