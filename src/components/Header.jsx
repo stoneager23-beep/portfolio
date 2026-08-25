@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import './Header.css';
 
 
-const Header = () => {
+const Header = ({ onOpenResumeModal }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    const handleMobileCVClick = () => {
+        setIsMobileMenuOpen(false);
+        if (onOpenResumeModal) {
+            onOpenResumeModal();
+        }
     };
 
     return (
@@ -26,10 +33,15 @@ const Header = () => {
                 </nav>
 
                 <div className="action-section">
-                    <a href="/resume_Husnain-faisal_2.pdf" download="resume_Husnain-faisal_2.pdf" className="cv-btn">
+                    <button 
+                        type="button" 
+                        onClick={onOpenResumeModal} 
+                        className="cv-btn"
+                        aria-label="Download CV options"
+                    >
                         <span className="material-symbols-outlined cv-icon">download</span>
                         CV
-                    </a>
+                    </button>
                     <a href="#experience" className="inquiry-btn">
                         Inquiry
                     </a>
@@ -46,9 +58,13 @@ const Header = () => {
                     <a href="#projects" onClick={toggleMobileMenu}>Work</a>
                     <a href="#about" onClick={toggleMobileMenu}>Skills</a>
                     <a href="#experience" onClick={toggleMobileMenu}>Experience</a>
-                    <a href="/resume_Husnain-faisal_2.pdf" download="resume_Husnain-faisal_2.pdf" className="mobile-cv-btn" onClick={toggleMobileMenu}>
+                    <button 
+                        type="button" 
+                        className="mobile-cv-btn" 
+                        onClick={handleMobileCVClick}
+                    >
                         <span className="material-symbols-outlined">download</span> Download CV
-                    </a>
+                    </button>
                 </nav>
             </div>
         </header>

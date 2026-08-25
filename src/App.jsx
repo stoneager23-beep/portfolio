@@ -6,6 +6,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
+import ResumeModal from './components/ResumeModal';
 import ScrollReveal from './components/animations/ScrollReveal';
 import './index.css';
 
@@ -105,13 +106,14 @@ function ProgressBar() {
 
 function App() {
     const [projectFilter, setProjectFilter] = useState('all');
+    const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
     return (
         <div style={{ position: 'relative', minHeight: '100vh', width: '100%', overflowX: 'hidden' }}>
             <ScrollReveal />
             <ParticleCanvas />
             <ProgressBar />
-            <Header />
+            <Header onOpenResumeModal={() => setIsResumeModalOpen(true)} />
             <main style={{ position: 'relative', zIndex: 1 }}>
                 <Hero onSelectProjectFilter={setProjectFilter} />
                 <About />
@@ -120,6 +122,10 @@ function App() {
                 <Experience />
             </main>
             <Footer />
+            <ResumeModal 
+                isOpen={isResumeModalOpen} 
+                onClose={() => setIsResumeModalOpen(false)} 
+            />
         </div>
     );
 }
