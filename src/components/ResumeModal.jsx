@@ -4,8 +4,8 @@ import './ResumeModal.css';
 const ResumeModal = ({ isOpen, onClose }) => {
   const [previewDoc, setPreviewDoc] = useState(null); // null | 'ats' | 'designed'
 
-  const atsResumeUrl = `${import.meta.env.BASE_URL}Husnain_Faisal_Resume_Premium.pdf`;
-  const designedResumeUrl = `${import.meta.env.BASE_URL}Husnain_Faisal_Resume_Designed.pdf`;
+  const atsResumeUrl = `${import.meta.env.BASE_URL}Husnain_Faisal_Resume_ATS.pdf`;
+  const designedResumeUrl = `${import.meta.env.BASE_URL}Husnain_Faisal_Resume_Design.pdf`;
 
   // Reset preview mode when modal closes
   useEffect(() => {
@@ -38,32 +38,32 @@ const ResumeModal = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  const currentPreviewData = previewDoc === 'ats' 
+  const currentPreviewData = previewDoc === 'ats'
     ? {
-        title: 'ATS-Friendly / Recruiter CV',
-        url: atsResumeUrl,
-        downloadName: 'Husnain_Faisal_Resume_Premium.pdf',
-        badge: 'ATS OPTIMIZED',
-        badgeClass: 'ats-badge',
-        otherKey: 'designed',
-        otherLabel: 'Switch to Designed CV'
-      }
+      title: 'ATS-Friendly / Recruiter CV',
+      url: atsResumeUrl,
+      downloadName: 'Husnain_Faisal_Resume_ATS.pdf',
+      badge: 'ATS OPTIMIZED',
+      badgeClass: 'ats-badge',
+      otherKey: 'designed',
+      otherLabel: 'Switch to Designed CV'
+    }
     : previewDoc === 'designed'
-    ? {
+      ? {
         title: 'Visual & Designed CV',
         url: designedResumeUrl,
-        downloadName: 'Husnain_Faisal_Resume_Designed.pdf',
+        downloadName: 'Husnain_Faisal_Resume_Design.pdf',
         badge: 'CREATIVE EDITION',
         badgeClass: 'designed-badge',
         otherKey: 'ats',
         otherLabel: 'Switch to ATS CV'
       }
-    : null;
+      : null;
 
   return (
     <div className="resume-modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
-      <div 
-        className={`resume-modal-container ${previewDoc ? 'preview-mode' : ''}`} 
+      <div
+        className={`resume-modal-container ${previewDoc ? 'preview-mode' : ''}`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Glow ambient background inside modal */}
@@ -79,9 +79,9 @@ const ResumeModal = ({ isOpen, onClose }) => {
           <div className="resume-preview-wrapper">
             <div className="preview-top-bar">
               <div className="preview-left-controls">
-                <button 
-                  type="button" 
-                  className="preview-back-btn" 
+                <button
+                  type="button"
+                  className="preview-back-btn"
                   onClick={() => setPreviewDoc(null)}
                 >
                   <span className="material-symbols-outlined">arrow_back</span>
@@ -97,7 +97,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
               </div>
 
               <div className="preview-right-controls">
-                <button 
+                <button
                   type="button"
                   className="preview-switch-btn"
                   onClick={() => setPreviewDoc(currentPreviewData.otherKey)}
@@ -181,7 +181,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div className="card-specs">
-                  <span className="spec-tag">PDF • 50 KB</span>
+                  <span className="spec-tag">PDF • 65 KB</span>
                   <span className="spec-tag highlight">Single-Column</span>
                   <span className="spec-tag">Fast Parsing</span>
                 </div>
@@ -204,7 +204,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                 <div className="card-actions">
                   <a
                     href={atsResumeUrl}
-                    download="Husnain_Faisal_Resume_Premium.pdf"
+                    download="Husnain_Faisal_Resume_ATS.pdf"
                     className="resume-btn primary-resume-btn"
                     onClick={onClose}
                   >
@@ -240,7 +240,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div className="card-specs">
-                  <span className="spec-tag">PDF • 1.18 MB</span>
+                  <span className="spec-tag">PDF • 85 KB</span>
                   <span className="spec-tag highlight">Visual Layout</span>
                   <span className="spec-tag">Cinematic</span>
                 </div>
@@ -263,7 +263,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                 <div className="card-actions">
                   <a
                     href={designedResumeUrl}
-                    download="Husnain_Faisal_Resume_Designed.pdf"
+                    download="Husnain_Faisal_Resume_Design.pdf"
                     className="resume-btn primary-resume-btn designed-action"
                     onClick={onClose}
                   >

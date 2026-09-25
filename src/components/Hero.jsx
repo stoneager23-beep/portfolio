@@ -6,9 +6,9 @@ import './Hero.css';
 const Hero3DStage = lazy(() => import('./visuals/Hero3DStage'));
 
 const techItems = [
-  'LARAVEL FRAMEWORK', 'REACT.JS', 'NODE.JS', 'REST API',
-  'MYSQL DATABASE', 'ERP DASHBOARDS', 'TAILWIND CSS', 'POSTMAN',
-  'ADOBE PREMIERE PRO', 'AFTER EFFECTS VISUALS', 'MOTION GRAPHICS'
+  'LARAVEL FRAMEWORK', 'REACT.JS', 'WORDPRESS / WOOCOMMERCE', 'CLOVER POS INTEGRATION',
+  'REST APIs & JWT', 'DOORDASH DRIVE', 'MYSQL & ERD MODELING', 'ERP QA TESTING',
+  'BOOTSTRAP & TAILWIND', 'ADOBE PREMIERE PRO', 'AFTER EFFECTS'
 ];
 
 const canRenderWebGL = () => {
@@ -106,10 +106,10 @@ const Hero = ({ onSelectProjectFilter }) => {
           <span className="hero-title-line2 serif-accent">Architect</span>
         </h1>
 
-        <p className="hero-role">FULL-STACK WEB DEVELOPER</p>
+        <p className="hero-role">SOFTWARE ENGINEER &amp; FULL-STACK DEVELOPER</p>
 
         <p className="hero-tagline">
-          I build modern web applications, ERP dashboards, and business systems using Laravel, React, Node.js, and MySQL - blending clean code with cinematic digital experiences.
+          Software engineer delivering client websites, REST APIs, and business applications. Specializing in Laravel, React, WordPress/WooCommerce, and Clover POS integrations with disciplined ERP quality assurance.
         </p>
 
         <div className="hero-actions" ref={dropdownRef}>

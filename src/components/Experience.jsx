@@ -61,67 +61,83 @@ const Experience = () => {
 
                             <div className="timeline-item">
                                 <div className="timeline-icon hex-icon active">
-                                    <span className="material-symbols-outlined">bug_report</span>
+                                    <span className="material-symbols-outlined">terminal</span>
                                 </div>
                                 <div className="timeline-card active">
                                     <div className="timeline-card-top">
-                                        <span className="date-badge active">MAY 2026 - PRESENT</span>
+                                        <span className="date-badge active">DEC 2025 - PRESENT</span>
                                     </div>
-                                    <h3 className="timeline-job-title">ERP Testing Intern</h3>
-                                    <p className="timeline-company">Netroots Technology <span className="serif-accent">ERP QA</span></p>
+                                    <h3 className="timeline-job-title">Laravel Developer</h3>
+                                    <p className="timeline-company">NetRoots Technologies (NRT) <span className="serif-accent">Lahore</span></p>
                                     <p className="timeline-desc">
-                                        Testing school ERP modules, workflows, validations, reports, and business logic across inventory, purchase, GRN, HR, finance, and school management. Creating clear bug reports with steps to reproduce, expected result, and actual result while verifying forms, permissions, dashboards, data flow, and module behavior.
+                                        Engineering core web features, database CRUD architecture, and conducting ERP enterprise testing for academic and commercial platforms.
                                     </p>
-                                </div>
-                            </div>
-
-                            {/* Item 1 */}
-                            <div className="timeline-item">
-                                <div className="timeline-icon hex-icon">
-                                    <span className="material-symbols-outlined">code</span>
-                                </div>
-                                <div className="timeline-card">
-                                    <div className="timeline-card-top">
-                                        <span className="date-badge">2024 - PRESENT</span>
-                                    </div>
-                                    <h3 className="timeline-job-title">Full-Stack Laravel Developer</h3>
-                                    <p className="timeline-company">Freelance <span className="serif-accent">Consultant</span></p>
-                                    <p className="timeline-desc">
-                                        Architecting premium web solutions with Laravel, React, Node.js, and specialized cloud infrastructure. Elevating user experiences through precision engineering and minimalist aesthetics.
-                                    </p>
+                                    <ul className="timeline-bullets">
+                                        <li className="timeline-bullet-item">Develop Laravel/PHP pages and dynamic blog features for university clients including UCL and BHS.</li>
+                                        <li className="timeline-bullet-item">Build admin CRUD panels for database-backed content, supporting record creation, viewing, updates and deletion.</li>
+                                        <li className="timeline-bullet-item">Maintain WordPress/WooCommerce websites; resolve plugin conflicts, SMTP delivery failures and SEO/sitemap issues.</li>
+                                        <li className="timeline-bullet-item">Test Cornerstone, MCJ and OPF Laravel ERPs: Purchase Requisition, GRN, Inventory, Fee Management and HR.</li>
+                                        <li className="timeline-bullet-item">Verify forms, permissions, reports and data flow; document reproduction steps and expected/actual results, coordinating fixes with developers.</li>
+                                    </ul>
                                 </div>
                             </div>
 
                             {/* Item 2 */}
                             <div className="timeline-item">
                                 <div className="timeline-icon hex-icon">
-                                    <span className="material-symbols-outlined">movie_edit</span>
+                                    <span className="material-symbols-outlined">code</span>
                                 </div>
                                 <div className="timeline-card">
                                     <div className="timeline-card-top">
-                                        <span className="date-badge">2025 - CURRENT</span>
+                                        <span className="date-badge">SEP 2025 - PRESENT</span>
                                     </div>
-                                    <h3 className="timeline-job-title">Senior Video Editor</h3>
-                                    <p className="timeline-company">Pulse Media <span className="serif-accent">Creative Lab</span></p>
+                                    <h3 className="timeline-job-title">Full-Stack Web Developer</h3>
+                                    <p className="timeline-company">Freelance / Contract <span className="serif-accent">Remote</span></p>
                                     <p className="timeline-desc">
-                                        Visual storytelling for global luxury brands. Specializing in high-end post-production, cinematic motion graphics, and narrative color grading.
+                                        Architecting production-ready web applications, secure RESTful APIs, and tailored database solutions for diverse client initiatives.
                                     </p>
+                                    <ul className="timeline-bullets">
+                                        <li className="timeline-bullet-item">Build and deploy Laravel applications supporting 1,000+ users in production; develop RESTful APIs with JWT authentication and role-based access control.</li>
+                                        <li className="timeline-bullet-item">Optimize MySQL queries and indexing; translate client requirements into working website and application features.</li>
+                                        <li className="timeline-bullet-item">Prioritize client satisfaction through clear communication, progress updates and responsive, feedback-led revisions.</li>
+                                    </ul>
                                 </div>
                             </div>
 
                             {/* Item 3 */}
                             <div className="timeline-item">
                                 <div className="timeline-icon hex-icon">
-                                    <span className="material-symbols-outlined">brush</span>
+                                    <span className="material-symbols-outlined">school</span>
                                 </div>
                                 <div className="timeline-card">
                                     <div className="timeline-card-top">
-                                        <span className="date-badge">2023 - 2025</span>
+                                        <span className="date-badge">EXPECTED 2026</span>
                                     </div>
-                                    <h3 className="timeline-job-title">UI/UX Designer</h3>
-                                    <p className="timeline-company">Freelance <span className="serif-accent">Projects</span></p>
+                                    <h3 className="timeline-job-title">BSc, Software Engineering Technology</h3>
+                                    <p className="timeline-company">Punjab Tianjin University of Technology <span className="serif-accent">Lahore</span></p>
                                     <p className="timeline-desc">
-                                        Crafting intuitive digital interfaces where form meets flawless function. Transforming complex requirements into elegant, user-centric prototypes.
+                                        Degree candidate with a 3.01 / 4.0 GPA, specializing in software engineering, database modeling, and scalable web architectures.
+                                    </p>
+                                    <ul className="timeline-bullets">
+                                        <li className="timeline-bullet-item">Won internal NRT competition with a six-sheet Excel workload tool featuring live dashboards and self-updating indicators.</li>
+                                        <li className="timeline-bullet-item">Completed Advanced Laravel engineering curriculum on Udemy; committed to ongoing project-based learning.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            {/* Item 4 */}
+                            <div className="timeline-item">
+                                <div className="timeline-icon hex-icon">
+                                    <span className="material-symbols-outlined">movie_edit</span>
+                                </div>
+                                <div className="timeline-card">
+                                    <div className="timeline-card-top">
+                                        <span className="date-badge">CREATIVE LAB</span>
+                                    </div>
+                                    <h3 className="timeline-job-title">Senior Video Editor &amp; Motion Artist</h3>
+                                    <p className="timeline-company">Pulse Media &amp; Freelance <span className="serif-accent">Visuals</span></p>
+                                    <p className="timeline-desc">
+                                        Visual storytelling for client campaigns and digital media. Specializing in high-end post-production, cinematic motion graphics, and narrative color grading with Premiere Pro &amp; After Effects.
                                     </p>
                                 </div>
                             </div>

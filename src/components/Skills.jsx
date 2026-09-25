@@ -3,34 +3,34 @@ import { Code, Server, Database, Wrench, ClipboardCheck, PlayCircle } from 'luci
 
 const skillsData = [
   {
-    category: "Frontend",
+    category: "Languages & Frameworks",
     icon: <Code className="text-secondary" size={32} />,
-    skills: ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS"]
+    skills: ["PHP", "JavaScript", "SQL", "HTML5", "CSS3", "Laravel", "React", "Bootstrap", "Chart.js"]
   },
   {
-    category: "Backend",
+    category: "Backend & Data",
     icon: <Server className="text-primary" size={32} />,
-    skills: ["Laravel", "PHP", "Node.js", "Express.js"]
+    skills: ["REST APIs", "JWT Auth", "RBAC", "CRUD Panels", "MySQL", "Database Design", "ERD Modeling"]
   },
   {
-    category: "Database",
+    category: "Web Platforms & Integrations",
     icon: <Database className="text-accent" size={32} />,
-    skills: ["MySQL", "MongoDB"]
+    skills: ["WordPress", "WooCommerce", "Clover POS", "Smart Online Order", "DoorDash Drive", "SMTP Config"]
   },
   {
-    category: "Tools",
+    category: "Tools & Practices",
     icon: <Wrench className="text-secondary" size={32} />,
-    skills: ["Git", "GitHub", "Vercel", "Postman", "Docker Basics"]
+    skills: ["Git", "GitHub", "Composer", "npm", "VS Code", "Agile", "Postman"]
   },
   {
-    category: "Testing",
+    category: "ERP QA & Testing",
     icon: <ClipboardCheck className="text-primary" size={32} />,
-    skills: ["Manual Testing", "ERP Testing", "Bug Reporting", "Test Cases"]
+    skills: ["Cornerstone ERP QA", "MCJ & OPF Testing", "Bug Reporting", "Form & Permission Verification"]
   },
   {
-    category: "Creative / Video Editing",
+    category: "Creative Craft & Languages",
     icon: <PlayCircle className="text-accent" size={32} />,
-    skills: ["Adobe Premiere Pro", "After Effects", "Cinematic Editing", "Motion Graphics", "Color Grading", "Visual Storytelling"]
+    skills: ["Adobe Premiere Pro", "After Effects", "Motion Graphics", "English (Fluent)", "Urdu (Fluent)", "Korean (Conversational)"]
   }
 ];
 

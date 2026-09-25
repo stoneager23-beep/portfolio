@@ -17,13 +17,12 @@ const Contact = () => {
 
           <div className="contact-info-block">
             <p>📍 Lahore, Pakistan</p>
-            <p>📞 0302-4149916</p>
+            <p>📞 +92 302 4149916</p>
           </div>
 
           <div className="social-links">
-            <a href="https://github.com/stoneager23-beep/factory-management-system" className="social-icon"><Github size={24} /></a>
-            <a href="https://www.linkedin.com/in/husnain-faisal-530009216/" className="social-icon"><Linkedin size={24} /></a>
-            {/* <a href="#" className="social-icon"><Twitter size={24} /></a> */}
+            <a href="https://github.com/stoneager23-beep" target="_blank" rel="noopener noreferrer" className="social-icon"><Github size={24} /></a>
+            <a href="https://www.linkedin.com/in/husnain-faisal-530009216/" target="_blank" rel="noopener noreferrer" className="social-icon"><Linkedin size={24} /></a>
           </div>
         </div>
 

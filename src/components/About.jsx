@@ -6,19 +6,39 @@ const skillCategories = [
     title: 'Full-Stack Engineering',
     icon: 'terminal',
     skills: [
-      { name: 'Laravel', level: 'Expert' },
+      { name: 'Laravel Framework', level: 'Expert' },
+      { name: 'PHP & MySQL', level: 'Expert' },
       { name: 'React', level: 'Advanced' },
-      { name: 'Tailwind', level: 'Expert' },
-      { name: 'SQL', level: 'Senior' },
+      { name: 'REST APIs & JWT', level: 'Senior' },
+    ],
+  },
+  {
+    title: 'Platforms & Integrations',
+    icon: 'storefront',
+    skills: [
+      { name: 'WordPress & WooCommerce', level: 'Expert' },
+      { name: 'Clover POS & Smart Order', level: 'Senior' },
+      { name: 'DoorDash Drive Integration', level: 'Advanced' },
+      { name: 'Bootstrap & Tailwind', level: 'Expert' },
+    ],
+  },
+  {
+    title: 'ERP QA & Architecture',
+    icon: 'verified',
+    skills: [
+      { name: 'ERP Quality Assurance', level: 'Senior' },
+      { name: 'Database Design & ERDs', level: 'Senior' },
+      { name: 'Git & Composer / npm', level: 'Advanced' },
+      { name: 'AI / Machine Learning', level: 'Learning' },
     ],
   },
   {
     title: 'Cinematic Production',
     icon: 'movie',
     skills: [
-      { name: 'After Effects', level: 'Advanced' },
-      { name: 'Premiere Pro', level: 'Advanced' },
-      { name: 'DaVinci Resolve', level: 'Learning' },
+      { name: 'Adobe Premiere Pro', level: 'Advanced' },
+      { name: 'After Effects Visuals', level: 'Advanced' },
+      { name: 'Motion Graphics', level: 'Advanced' },
     ],
   },
 ];
@@ -56,8 +76,8 @@ const About = () => {
             </div>
             <div className="portrait-stats">
               <div className="stat-bubble">
-                <span className="stat-number">3+</span>
-                <span className="stat-text">Years</span>
+                <span className="stat-number">1,000+</span>
+                <span className="stat-text">Active Users</span>
               </div>
               <div className="stat-bubble">
                 <span className="stat-number">24+</span>
