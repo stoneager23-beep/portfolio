@@ -160,7 +160,7 @@ export const projects = [
     liveUrl: 'https://americasgreatestwings.com',
     liveLabel: 'Live Site',
     githubUrl: null, // client project
-    screenshot: 'agw_showcase.jpg',
+    screenshot: 'projects/americas-greatest-wings.webp',
   },
   {
     id: 'huj-consulting',
@@ -175,7 +175,7 @@ export const projects = [
     liveUrl: 'https://hujconsulting.com',
     liveLabel: 'Live Site',
     githubUrl: null, // client project
-    screenshot: 'huj_showcase.jpg',
+    screenshot: 'projects/huj-consulting.webp',
   },
   {
     id: 'learning-management-system',
@@ -189,7 +189,7 @@ export const projects = [
     role: 'Full-stack developer',
     liveUrl: null,
     githubUrl: 'https://github.com/stoneager23-beep/lms-platform',
-    screenshot: 'LMS.jpeg',
+    screenshot: 'projects/learning-management-system.webp',
   },
   {
     id: 'factory-management-system',
@@ -203,9 +203,7 @@ export const projects = [
     role: 'Full-stack developer',
     liveUrl: null,
     githubUrl: 'https://github.com/stoneager23-beep/factory-management-system',
-    // TODO: hotlinked image; download a real screenshot into public/projects/ and point to it
-    screenshot:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBM2UAInvgsNolQvhltC-1VcQFyqoBwb3GJdFJJ6Iyfg7rnCN0gng5jPelYq_4MDrPskYPnQEtxDVo5SduuHvViNBIDdRyF4h7ePXRT5VvmhBrmHULZTqOJ1-c7NxoqCqFTri88JUROGEjYNw9Y4uSbCveW7touB-OAWKWvHltMqLCe0qh-CnRLfo57fqvqvt3nmebMiDbV1iaOd8Stxu2HXQNymcF4Uz8GbMFdftIrS5wH-KGSEf-iFA1EtCnNwG-4lFCAXYaXBw',
+    screenshot: 'projects/factory-management-system.webp',
   },
   {
     id: 'motion-graphics-showreel',
@@ -221,7 +219,7 @@ export const projects = [
     liveUrl: 'https://youtube.com/shorts/8TKrsVJ1unY?si=kV516jUrSO2sY7Ax',
     liveLabel: 'Watch Reel',
     githubUrl: null,
-    screenshot: 'Reel.jpeg',
+    screenshot: 'projects/motion-graphics-showreel.webp',
   },
   {
     id: 'cinematic-gaming-edit',
@@ -237,8 +235,6 @@ export const projects = [
     liveUrl: 'https://youtu.be/2E3YIuUHpVQ?si=Sg1MMF8o07y08aO6',
     liveLabel: 'Watch Edit',
     githubUrl: null,
-    // TODO: hotlinked image; download a real thumbnail into public/projects/ and point to it
-    screenshot:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBorfHrziIWaemljFmw2GWXA6ouriOa4zOY38RK0t49SZxVuVdOIPWbpsQDCwnD3_OXtLMU84VWldHmMtqtOE_6_UANWvUUuN75SUHypzC6m80pRr409Hh30qvGEhTPLhnZ_jYkKetAJvtCHZwQx4zXR9BH6iWuT5lWd5kAMADHQyJxEYpeWh0raLU_IIGhh_nU5dWdhcCb9WLPUfOTYV9itRR6_6wTDO5j0Os3-o3PGCQmSuVxfMtNO_f-ED3AMerd_PK9VjYrHQ',
+    screenshot: 'projects/cinematic-gaming-edit.webp',
   },
 ];

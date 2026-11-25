@@ -67,9 +67,13 @@ const About = () => {
             <div className="hex-portrait-wrapper">
               <div className="hex-portrait">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxiolcTM6xwxYKB9OidYRC7EstH58Lkr4IhT-3oQlcsxQR5NBLbn4QlDowM1SYKGXQWIDX8m2xuHhx_jEbp02oR-JstFWkNqQlJroz1GDzciahLCn0g0GukZXVq_Gl2l4dgx1bkhS8AAM01NlZxMKFSvPiqgNCGLp6TuZs5utUy6LKEI7Zt2IQ9G9EZsYm4fri7LjjD9AfGP52O_V3RxfLAGbkGq0saFs2rFCkTdfurnniZhnk7Rw1hQ2PPlawM-DkMVRZ-te2ZA"
-                  alt="Husnain Faisal"
+                  src={`${import.meta.env.BASE_URL}images/husnain-portrait.webp`}
+                  alt="Developer workstation with two monitors showing code"
                   className="hex-img"
+                  width="512"
+                  height="512"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="hex-border"></div>
