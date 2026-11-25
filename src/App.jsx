@@ -8,6 +8,7 @@ import Experience from './components/Experience';
 import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
 import ScrollReveal from './components/animations/ScrollReveal';
+import { ALL_CATEGORIES } from './data/projects';
 import './index.css';
 
 function ParticleCanvas() {
@@ -105,7 +106,7 @@ function ProgressBar() {
 }
 
 function App() {
-    const [projectFilter, setProjectFilter] = useState('all');
+    const [projectFilter, setProjectFilter] = useState(ALL_CATEGORIES);
     const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
     return (

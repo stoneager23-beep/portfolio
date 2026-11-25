@@ -122,21 +122,31 @@ const Hero = ({ onSelectProjectFilter }) => {
               <span className={`material-symbols-outlined icon-arrow ${activeDropdown === 'projects' ? 'rotate-90' : ''}`}>chevron_right</span>
             </button>
             <div className={`dropdown-menu ${activeDropdown === 'projects' ? 'show' : ''}`}>
-              <a 
-                href="#projects" 
-                className="dropdown-item" 
+              <a
+                href="#projects"
+                className="dropdown-item"
                 onClick={() => {
-                  onSelectProjectFilter('laravel');
+                  onSelectProjectFilter('Full Stack');
                   setTimeout(() => setActiveDropdown(null), 150);
                 }}
               >
-                <span className="material-symbols-outlined">code</span> Web Development
+                <span className="material-symbols-outlined">code</span> Full Stack
               </a>
-              <a 
-                href="#projects" 
-                className="dropdown-item" 
+              <a
+                href="#projects"
+                className="dropdown-item"
                 onClick={() => {
-                  onSelectProjectFilter('cinematic');
+                  onSelectProjectFilter('AI & Automation');
+                  setTimeout(() => setActiveDropdown(null), 150);
+                }}
+              >
+                <span className="material-symbols-outlined">smart_toy</span> AI &amp; Automation
+              </a>
+              <a
+                href="#projects"
+                className="dropdown-item"
+                onClick={() => {
+                  onSelectProjectFilter('Video & Motion');
                   setTimeout(() => setActiveDropdown(null), 150);
                 }}
               >
