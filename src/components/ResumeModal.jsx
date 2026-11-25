@@ -181,7 +181,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div className="card-specs">
-                  <span className="spec-tag">PDF • 65 KB</span>
+                  <span className="spec-tag">PDF • 82 KB</span>
                   <span className="spec-tag highlight">Single-Column</span>
                   <span className="spec-tag">Fast Parsing</span>
                 </div>
@@ -189,7 +189,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                 <ul className="card-points">
                   <li>
                     <span className="material-symbols-outlined point-icon">check_circle</span>
-                    <span>100% compliant with ATS screening systems (Greenhouse, Lever, Workday)</span>
+                    <span>Built for applicant tracking systems: single column, standard sections, selectable text</span>
                   </li>
                   <li>
                     <span className="material-symbols-outlined point-icon">check_circle</span>
@@ -240,9 +240,9 @@ const ResumeModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div className="card-specs">
-                  <span className="spec-tag">PDF • 85 KB</span>
+                  <span className="spec-tag">PDF • 98 KB</span>
                   <span className="spec-tag highlight">Visual Layout</span>
-                  <span className="spec-tag">Cinematic</span>
+                  <span className="spec-tag">ATS-Friendly</span>
                 </div>
 
                 <ul className="card-points">
