@@ -52,4 +52,16 @@ function projectsJsonLd() {
 export default defineConfig({
     plugins: [react(), projectsJsonLd()],
     base: './',
+    build: {
+        rollupOptions: {
+            output: {
+                // Libraries that rarely change get their own long-cached chunks, so a content-only
+                // redeploy doesn't make returning visitors download them again.
+                manualChunks(id) {
+                    if (/[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/.test(id)) return 'react'
+                    if (/[\\/]node_modules[\\/]gsap[\\/]/.test(id)) return 'gsap'
+                },
+            },
+        },
+    },
 })
