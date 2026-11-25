@@ -20,6 +20,12 @@
         grid-template-columns: 380px 1fr;
         gap: 5rem;
     }
+
+    /* keep the image and stats beside the long skills list while scrolling */
+    .portrait-column {
+        position: sticky;
+        top: 7rem;
+    }
 }
 
 /* Hexagonal Portrait */
@@ -134,7 +140,7 @@
 
 .skill-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
 }
 
@@ -152,7 +158,8 @@
 .skill-card:hover {
     border-color: rgba(212, 175, 55, 0.2);
     background: var(--surface-container-high);
-    transform: translateY(-2px);
+    /* `translate` so the lift isn't overridden by the scroll-reveal's inline transform */
+    translate: 0 -2px;
 }
 
 .skill-name {
