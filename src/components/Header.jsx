@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import useTheme from '../hooks/useTheme';
 import './Header.css';
 
 
 const Header = ({ onOpenResumeModal }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { theme, toggleTheme } = useTheme();
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -33,7 +36,18 @@ const Header = ({ onOpenResumeModal }) => {
                 </nav>
 
                 <div className="action-section">
-                    <button 
+                    <button
+                        type="button"
+                        onClick={toggleTheme}
+                        className="theme-toggle"
+                        aria-label={`Switch to ${nextTheme} mode`}
+                        title={`Switch to ${nextTheme} mode`}
+                    >
+                        <span className="material-symbols-outlined" aria-hidden="true">
+                            {theme === 'dark' ? 'light_mode' : 'dark_mode'}
+                        </span>
+                    </button>
+                    <button
                         type="button" 
                         onClick={onOpenResumeModal} 
                         className="cv-btn"

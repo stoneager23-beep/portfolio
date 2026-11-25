@@ -1,0 +1,302 @@
+/*
+ * Light theme.
+ *
+ * Everything here is scoped under :root[data-theme='light'], so the default dark theme is untouched.
+ * The attribute is set by the inline script in index.html (before first paint) and by src/hooks/useTheme.js.
+ *
+ * 1. Tokens          - light values for the CSS variables defined in src/index.css
+ * 2. Dark islands    - header, hero, terminal and image overlays stay dark in both themes
+ * 3. Overrides       - rules in component CSS that hard-code dark-theme colors
+ */
+
+/* ------------------------------------------------------------------ 1. Tokens */
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg-dark: #f6f4ef;
+  --surface: #ffffff;
+  --surface-container-low: #ffffff;
+  --surface-container: #f1eee6;
+  --surface-container-high: #e9e5da;
+  --surface-container-highest: #ddd8ca;
+
+  /* darker gold / cyan so text meets WCAG AA (>= 4.5:1) on light backgrounds */
+  --primary: #805f08;
+  --primary-container: #c9a227;
+  --color-gold: #805f08;
+  --color-gold-light: #6b5208;
+  --color-gold-dark: #6b5208;
+  --secondary: #0a6680;
+  --secondary-container: #0a7d9c;
+  --accent-cyan: #08738f;
+  --accent-blue: #2f5fd6;
+  --accent-purple: #6544d6;
+
+  --on-surface: #1c1b1d;
+  --on-surface-variant: #4a4336;
+  --text-main: #1c1b1d;
+  --text-muted: #575c66;
+  --outline: #7d7461;
+  --outline-variant: #cfc6b0;
+
+  --gold-glow: rgba(128, 95, 8, 0.12);
+
+  /* hairlines (the dark theme uses white at 4-12% opacity) */
+  --light-hairline: rgba(28, 27, 29, 0.08);
+  --light-hairline-strong: rgba(28, 27, 29, 0.14);
+}
+
+/* ------------------------------------------------------------------ 2. Dark islands
+ * These areas keep the dark design in both themes: the header (it sits on the hero), the hero
+ * with its 3D scene and intro, the contact terminal, and the dark hover overlay on project images.
+ * Re-declaring the dark token values here makes everything inside render exactly as in dark mode.
+ * Keep in sync with :root in src/index.css.
+ */
+:root[data-theme='light'] :is(.site-header, .hero-section, .terminal-panel, .project-overlay) {
+  color-scheme: dark;
+
+  --bg-dark: #0a0a0b;
+  --surface: #131314;
+  --surface-container-low: #1c1b1c;
+  --surface-container: #201f20;
+  --surface-container-high: #2a2a2b;
+  --surface-container-highest: #353436;
+
+  --primary: #f2ca50;
+  --primary-container: #d4af37;
+  --color-gold: #d4af37;
+  --color-gold-light: #f3e5ab;
+  --color-gold-dark: #996515;
+  --secondary: #a2e7ff;
+  --secondary-container: #00d2fd;
+  --accent-cyan: #24ddff;
+  --accent-blue: #4c7dff;
+  --accent-purple: #8f6cff;
+
+  --on-surface: #e5e2e3;
+  --on-surface-variant: #d0c5af;
+  --text-main: #e5e2e3;
+  --text-muted: #9ca3af;
+  --outline: #99907c;
+  --outline-variant: #4d4635;
+
+  --gold-glow: rgba(212, 175, 55, 0.15);
+
+  /* aliases resolve where they are declared, so they must be re-declared too */
+  --color-primary: var(--primary);
+  --color-text-main: var(--on-surface);
+  --color-text-muted: var(--text-muted);
+
+  color: var(--on-surface);
+}
+
+/* ------------------------------------------------------------------ 3. Overrides */
+
+/* index.css utilities */
+:root[data-theme='light'] .glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(128, 95, 8, 0.2);
+  box-shadow: 0 4px 30px rgba(60, 45, 10, 0.06);
+}
+
+:root[data-theme='light'] .pill-gold {
+  border-color: rgba(128, 95, 8, 0.35);
+}
+
+:root[data-theme='light'] .text-gold-gradient {
+  background: linear-gradient(45deg, #6b5208, #a07c12);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+:root[data-theme='light'] .progress-bar {
+  background: var(--light-hairline);
+}
+
+/* Projects */
+:root[data-theme='light'] .filter-btn {
+  border-color: var(--light-hairline-strong);
+}
+
+:root[data-theme='light'] .project-card {
+  border-color: var(--light-hairline);
+  box-shadow: 0 1px 2px rgba(60, 45, 10, 0.04);
+}
+
+:root[data-theme='light'] .project-card:hover,
+:root[data-theme='light'] .project-card:focus-within {
+  box-shadow: 0 18px 40px rgba(60, 45, 10, 0.12), 0 0 0 1px rgba(128, 95, 8, 0.25);
+}
+
+:root[data-theme='light'] .project-card--featured {
+  border-color: rgba(128, 95, 8, 0.3);
+}
+
+/* screenshots are dimmed to blend into the dark theme; show them as-is on light */
+:root[data-theme='light'] .project-img {
+  filter: none;
+}
+
+:root[data-theme='light'] .project-card:hover .project-img {
+  filter: brightness(0.55) saturate(0.8);
+}
+
+:root[data-theme='light'] .project-btn--secondary {
+  border-color: rgba(10, 102, 128, 0.35);
+}
+
+:root[data-theme='light'] .project-btn--secondary:hover {
+  background: rgba(10, 102, 128, 0.06);
+  box-shadow: 0 0 15px rgba(10, 102, 128, 0.12);
+}
+
+:root[data-theme='light'] .project-note--warning {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: rgba(128, 95, 8, 0.3);
+}
+
+/* About / skill matrix */
+:root[data-theme='light'] .skill-card {
+  border-color: var(--light-hairline);
+}
+
+:root[data-theme='light'] .stat-bubble {
+  border-color: rgba(128, 95, 8, 0.18);
+}
+
+/* level badges use inline styles in About.jsx, so these need !important */
+:root[data-theme='light'] .skill-level[data-level='Expert'] {
+  background: rgba(212, 175, 55, 0.22) !important;
+  color: #6b5208 !important;
+}
+
+:root[data-theme='light'] .skill-level[data-level='Senior'] {
+  background: rgba(212, 175, 55, 0.14) !important;
+  color: #805f08 !important;
+}
+
+:root[data-theme='light'] .skill-level[data-level='Advanced'] {
+  background: rgba(10, 102, 128, 0.1) !important;
+  color: #0a6680 !important;
+}
+
+:root[data-theme='light'] .skill-level[data-level='Learning'] {
+  background: rgba(28, 27, 29, 0.06) !important;
+  color: #575c66 !important;
+}
+
+/* Skills (styles live in Skills.jsx) */
+:root[data-theme='light'] .skill-icon-wrapper {
+  background: rgba(28, 27, 29, 0.05);
+}
+
+:root[data-theme='light'] .skill-tag {
+  background: rgba(28, 27, 29, 0.04);
+  border-color: var(--light-hairline-strong);
+}
+
+/* Experience timeline (the contact terminal stays dark, see islands) */
+:root[data-theme='light'] .timeline-line {
+  background: var(--light-hairline-strong);
+}
+
+:root[data-theme='light'] .timeline-card {
+  border-color: var(--light-hairline);
+  border-left-color: var(--light-hairline-strong);
+}
+
+:root[data-theme='light'] .timeline-card.active,
+:root[data-theme='light'] .timeline-item:hover .timeline-card {
+  border-left-color: var(--primary-container);
+}
+
+:root[data-theme='light'] .date-badge {
+  background: rgba(28, 27, 29, 0.05);
+}
+
+:root[data-theme='light'] .date-badge.active {
+  background: rgba(212, 175, 55, 0.16);
+}
+
+:root[data-theme='light'] .terminal-panel {
+  box-shadow: 0 20px 60px rgba(60, 45, 10, 0.18);
+}
+
+/* Footer */
+:root[data-theme='light'] .footer-section,
+:root[data-theme='light'] .footer-bottom {
+  border-top-color: var(--light-hairline);
+}
+
+:root[data-theme='light'] .footer-social-btn {
+  color: var(--primary);
+  border-color: rgba(128, 95, 8, 0.2);
+}
+
+:root[data-theme='light'] .footer-social-btn:hover {
+  background: rgba(212, 175, 55, 0.14);
+}
+
+:root[data-theme='light'] .footer-copyright {
+  color: #6b6f78;
+}
+
+/* Resume modal */
+:root[data-theme='light'] .resume-modal-overlay {
+  background: rgba(28, 24, 16, 0.45);
+}
+
+:root[data-theme='light'] .resume-modal-container {
+  background: rgba(255, 255, 255, 0.97);
+  border-color: rgba(128, 95, 8, 0.3);
+  box-shadow: 0 30px 80px rgba(28, 24, 16, 0.25);
+}
+
+:root[data-theme='light'] .resume-modal-close,
+:root[data-theme='light'] .preview-back-btn {
+  background: rgba(28, 27, 29, 0.04);
+  border-color: var(--light-hairline-strong);
+}
+
+:root[data-theme='light'] .resume-card {
+  background: rgba(28, 27, 29, 0.02);
+  border-color: var(--light-hairline-strong);
+}
+
+:root[data-theme='light'] .resume-card:hover {
+  background: rgba(212, 175, 55, 0.05);
+  box-shadow: 0 12px 30px rgba(60, 45, 10, 0.12);
+}
+
+:root[data-theme='light'] .spec-tag {
+  background: rgba(28, 27, 29, 0.04);
+  border-color: var(--light-hairline-strong);
+}
+
+:root[data-theme='light'] .card-points li {
+  color: var(--on-surface-variant);
+}
+
+:root[data-theme='light'] .secondary-resume-btn {
+  background: rgba(28, 27, 29, 0.04);
+  border-color: var(--light-hairline-strong);
+}
+
+:root[data-theme='light'] .secondary-resume-btn:hover {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+:root[data-theme='light'] .preview-switch-btn {
+  background: rgba(212, 175, 55, 0.05);
+}
+
+:root[data-theme='light'] .preview-top-bar,
+:root[data-theme='light'] .resume-modal-footer {
+  border-color: var(--light-hairline);
+}
+
+:root[data-theme='light'] .pdf-frame-container {
+  background: #ece9e1;
+  border-color: var(--light-hairline-strong);
+  box-shadow: inset 0 2px 10px rgba(28, 24, 16, 0.08);
+}

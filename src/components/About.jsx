@@ -107,6 +107,7 @@ const About = () => {
                       <span className="skill-name">{skill.name}</span>
                       <span
                         className="skill-level"
+                        data-level={skill.level}
                         style={{
                           background: levelStyles[skill.level].bg,
                           color: levelStyles[skill.level].color,

@@ -5,6 +5,19 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <script>
+    // Apply the visitor's saved theme before anything paints (no flash). Default: dark.
+    // Keep in sync with src/hooks/useTheme.js.
+    (function () {
+      var theme = 'dark';
+      try {
+        if (localStorage.getItem('theme') === 'light') theme = 'light';
+      } catch (e) { /* storage unavailable */ }
+      document.documentElement.setAttribute('data-theme', theme);
+      if (theme === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f6f4ef');
+    })();
+  </script>
   <title>Husnain Faisal | Full Stack Developer (Laravel / Node.js) &amp; AI Applications</title>
   <meta name="description" content="Husnain Faisal is a Full Stack Developer (Laravel / Node.js) building e-commerce platforms, business systems and AI applications with LLMs, RAG and n8n." />
   <link rel="canonical" href="https://www.husnainweb.online/" />
