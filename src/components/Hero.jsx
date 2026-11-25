@@ -6,9 +6,9 @@ import './Hero.css';
 const Hero3DStage = lazy(() => import('./visuals/Hero3DStage'));
 
 const techItems = [
-  'LARAVEL FRAMEWORK', 'REACT.JS', 'WORDPRESS / WOOCOMMERCE', 'CLOVER POS INTEGRATION',
-  'REST APIs & JWT', 'DOORDASH DRIVE', 'MYSQL & ERD MODELING', 'ERP QA TESTING',
-  'BOOTSTRAP & TAILWIND', 'ADOBE PREMIERE PRO', 'AFTER EFFECTS'
+  'LARAVEL FRAMEWORK', 'REACT.JS', 'NODE.JS & EXPRESS', 'LLM APPS & RAG', 'LANGCHAIN',
+  'OPENAI API', 'PYTHON & STREAMLIT', 'N8N AUTOMATION', 'REST APIs & JWT', 'MYSQL & SUPABASE',
+  'WORDPRESS / WOOCOMMERCE', 'CLOVER POS INTEGRATION', 'ERP QA TESTING', 'ADOBE PREMIERE PRO'
 ];
 
 const canRenderWebGL = () => {
@@ -106,10 +106,10 @@ const Hero = ({ onSelectProjectFilter }) => {
           <span className="hero-title-line2 serif-accent">Architect</span>
         </h1>
 
-        <p className="hero-role">SOFTWARE ENGINEER &amp; FULL-STACK DEVELOPER</p>
+        <p className="hero-role">FULL-STACK DEVELOPER &amp; AI APPLICATIONS</p>
 
         <p className="hero-tagline">
-          Software engineer delivering client websites, REST APIs, and business applications. Specializing in Laravel, React, WordPress/WooCommerce, and Clover POS integrations with disciplined ERP quality assurance.
+          Full-stack developer building production web apps with Laravel, React and Node.js, plus AI applications with LLMs, RAG and LangChain: from online stores and REST APIs to AI support assistants and n8n automations.
         </p>
 
         <div className="hero-actions" ref={dropdownRef}>
