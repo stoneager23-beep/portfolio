@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const headingSelector = '.section-badge, .section-heading, .section-title, .section-subtitle';
-const cardSelector = '.project-card, .skill-card, .timeline-item, .terminal-panel, .portrait-column, .filter-bar';
+const cardSelector = '.project-card, .skill-card, .toolkit-card, .timeline-item, .terminal-panel, .portrait-column, .filter-bar';
 
 export default function ScrollReveal() {
   useEffect(() => {

@@ -118,7 +118,7 @@ function App() {
             <main style={{ position: 'relative', zIndex: 1 }}>
                 <Hero onSelectProjectFilter={setProjectFilter} />
                 <About />
-                <Skills />
+                <Skills onSelectProjectFilter={setProjectFilter} />
                 <Projects activeFilter={projectFilter} setActiveFilter={setProjectFilter} />
                 <Experience />
             </main>

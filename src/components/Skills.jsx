@@ -1,141 +1,96 @@
-import React from 'react';
-import { Code, Server, Database, Wrench, ClipboardCheck, PlayCircle } from 'lucide-react';
+import { Code, Server, Database, Wrench, ClipboardCheck, PlayCircle, Bot } from 'lucide-react';
+import { projects } from '../data/projects';
+import './Skills.css';
 
+const AI_CATEGORY = 'AI & Automation';
+const aiProjectCount = projects.filter((p) => p.category === AI_CATEGORY).length;
+
+// Tech stack by area. The AI & Automation tags come from the projects in src/data/projects.js.
+// `wide: true` makes a card span two columns on larger screens.
 const skillsData = [
   {
-    category: "Languages & Frameworks",
-    icon: <Code className="text-secondary" size={32} />,
-    skills: ["PHP", "JavaScript", "SQL", "HTML5", "CSS3", "Laravel", "React", "Bootstrap", "Chart.js"]
+    category: 'Languages & Frameworks',
+    Icon: Code,
+    skills: ['PHP', 'JavaScript', 'Python', 'SQL', 'HTML5', 'CSS3', 'Laravel', 'React', 'Node.js', 'Express.js', 'Bootstrap', 'Chart.js'],
   },
   {
-    category: "Backend & Data",
-    icon: <Server className="text-primary" size={32} />,
-    skills: ["REST APIs", "JWT Auth", "RBAC", "CRUD Panels", "MySQL", "Database Design", "ERD Modeling"]
+    category: AI_CATEGORY,
+    Icon: Bot,
+    wide: true,
+    note: 'Retrieval-augmented assistants, LLM-powered research and guidance tools, and n8n workflow automation.',
+    projectsFilter: AI_CATEGORY,
+    skills: ['LLM Apps', 'RAG', 'LangChain', 'OpenAI API', 'Streamlit', 'n8n Workflows'],
   },
   {
-    category: "Web Platforms & Integrations",
-    icon: <Database className="text-accent" size={32} />,
-    skills: ["WordPress", "WooCommerce", "Clover POS", "Smart Online Order", "DoorDash Drive", "SMTP Config"]
+    category: 'Backend & Data',
+    Icon: Server,
+    skills: ['REST APIs', 'JWT Auth', 'RBAC', 'CRUD Panels', 'MySQL', 'Supabase', 'Database Design', 'ERD Modeling'],
   },
   {
-    category: "Tools & Practices",
-    icon: <Wrench className="text-secondary" size={32} />,
-    skills: ["Git", "GitHub", "Composer", "npm", "VS Code", "Agile", "Postman"]
+    category: 'Web Platforms & Integrations',
+    Icon: Database,
+    skills: ['WordPress', 'WooCommerce', 'Clover POS', 'Smart Online Order', 'DoorDash Drive', 'SMTP Config'],
   },
   {
-    category: "ERP QA & Testing",
-    icon: <ClipboardCheck className="text-primary" size={32} />,
-    skills: ["Cornerstone ERP QA", "MCJ & OPF Testing", "Bug Reporting", "Form & Permission Verification"]
+    category: 'Tools & Practices',
+    Icon: Wrench,
+    skills: ['Git', 'GitHub', 'Composer', 'npm', 'VS Code', 'Agile', 'Postman'],
   },
   {
-    category: "Creative Craft & Languages",
-    icon: <PlayCircle className="text-accent" size={32} />,
-    skills: ["Adobe Premiere Pro", "After Effects", "Motion Graphics", "English (Fluent)", "Urdu (Fluent)", "Korean (Conversational)"]
-  }
+    category: 'ERP QA & Testing',
+    Icon: ClipboardCheck,
+    skills: ['Cornerstone ERP QA', 'MCJ & OPF Testing', 'Bug Reporting', 'Form & Permission Verification'],
+  },
+  {
+    category: 'Creative Craft & Languages',
+    Icon: PlayCircle,
+    skills: ['Adobe Premiere Pro', 'After Effects', 'Motion Graphics', 'English (Fluent)', 'Urdu (Fluent)', 'Korean (Conversational)'],
+  },
 ];
 
-const Skills = () => {
+const Skills = ({ onSelectProjectFilter }) => {
   return (
-    <section id="skills" className="section-padding">
-      <div className="container">
-        <h2 className="section-title text-center">My <span className="text-gradient">Skills</span></h2>
-        <p className="section-subtitle text-center">A developer-first toolkit, supported by testing discipline and cinematic visual craft.</p>
+    <section id="skills" className="toolkit-section" aria-labelledby="toolkit-heading">
+      <div className="section-container">
+        <div className="toolkit-header">
+          <span className="section-badge">Tech Stack</span>
+          <h2 id="toolkit-heading" className="section-heading">
+            THE <span className="accent">toolkit</span>
+          </h2>
+          <p className="toolkit-subtitle">
+            Full-stack and AI tooling, backed by testing discipline and cinematic visual craft.
+          </p>
+        </div>
 
-        <div className="skills-grid">
-          {skillsData.map((group, index) => (
-            <div key={index} className="glass-card skill-card">
-              <div className="skill-icon-wrapper">
-                {group.icon}
+        <div className="toolkit-grid">
+          {skillsData.map(({ category, Icon, wide, note, projectsFilter, skills }) => (
+            <article key={category} className={`toolkit-card${wide ? ' toolkit-card--wide' : ''}`}>
+              <div className="toolkit-card-head">
+                <span className="toolkit-icon" aria-hidden="true">
+                  <Icon size={20} />
+                </span>
+                <h3 className="toolkit-title">{category}</h3>
               </div>
-              <h3 className="skill-category">{group.category}</h3>
-              <div className="skill-tags">
-                {group.skills.map((skill) => (
-                  <span key={skill} className="skill-tag">{skill}</span>
+              {note && <p className="toolkit-note">{note}</p>}
+              <ul className="toolkit-tags" aria-label={`${category} skills`}>
+                {skills.map((skill) => (
+                  <li key={skill} className="toolkit-tag">
+                    {skill}
+                  </li>
                 ))}
-              </div>
-            </div>
+              </ul>
+              {projectsFilter && onSelectProjectFilter && (
+                <a href="#projects" className="toolkit-link" onClick={() => onSelectProjectFilter(projectsFilter)}>
+                  See {aiProjectCount} AI projects
+                  <span className="material-symbols-outlined" aria-hidden="true">
+                    arrow_forward
+                  </span>
+                </a>
+              )}
+            </article>
           ))}
         </div>
       </div>
-
-      <style>{`
-        .section-padding {
-          padding: 6rem 0;
-        }
-
-        .container {
-          max-width: 80rem;
-          margin: 0 auto;
-          padding: 0 2.5rem;
-        }
-
-        .section-title {
-          font-size: 2.5rem;
-          margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-          color: var(--color-text-muted);
-          margin-bottom: 4rem;
-        }
-
-        .text-center {
-          text-align: center;
-        }
-
-        .skills-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-        }
-
-        .skill-card {
-          padding: 2rem;
-          transition: transform 0.3s ease;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
-
-        .skill-card:hover {
-          transform: translateY(-5px);
-        }
-
-        .skill-icon-wrapper {
-          margin-bottom: 1.5rem;
-          padding: 1rem;
-          background: rgba(255, 255, 255, 0.05);
-          border-radius: 50%;
-        }
-
-        .skill-category {
-          font-size: 1.25rem;
-          margin-bottom: 1.5rem;
-        }
-
-        .skill-tags {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 0.75rem;
-        }
-
-        .skill-tag {
-          padding: 0.5rem 1rem;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 20px;
-          font-size: 0.875rem;
-          transition: all 0.2s ease;
-        }
-
-        .skill-tag:hover {
-          background: rgba(99, 102, 241, 0.1);
-          border-color: var(--color-primary);
-          color: var(--color-text-main);
-        }
-      `}</style>
     </section>
   );
 };
