@@ -159,7 +159,7 @@ const Experience = () => {
                             <div className="terminal-body">
                                 <div className="terminal-scanline"></div>
                                 <h2 className="contact-title">Initialize Contact</h2>
-                                <p className="contact-subtitle">Let's build something cinematic together.</p>
+                                <p className="contact-subtitle">Let&apos;s build something cinematic together.</p>
 
                                 <form className="terminal-form" onSubmit={onSubmit}>
                                     <div className="form-group">
@@ -219,7 +219,7 @@ const Experience = () => {
                                     {status === 'success' && (
                                         <div className="status-msg success">
                                             <span className="material-symbols-outlined">check_circle</span>
-                                            Message sent! I'll get back to you soon.
+                                            Message sent! I&apos;ll get back to you soon.
                                         </div>
                                     )}
                                     {status === 'error' && (

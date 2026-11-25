@@ -6,7 +6,7 @@ const Contact = () => {
     <section id="contact" className="section-padding contact-section">
       <div className="container">
         <div className="glass-card contact-card">
-          <h2 className="section-title text-center">Let's Work <span className="text-gradient">Together</span></h2>
+          <h2 className="section-title text-center">Let&apos;s Work <span className="text-gradient">Together</span></h2>
           <p className="contact-text text-center">
             Currently available for freelance projects and open to full-time opportunities.
           </p>
