@@ -280,15 +280,41 @@ function DeveloperStage({ particleCount, reducedMotion }) {
   );
 }
 
+/** Tracks whether an element is on screen, so the scene can stop rendering once the visitor scrolls past it. */
+function useIsOnScreen(ref) {
+  const [onScreen, setOnScreen] = useState(true);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element || typeof IntersectionObserver === 'undefined') return undefined;
+
+    const observer = new IntersectionObserver(([entry]) => setOnScreen(entry.isIntersecting), {
+      rootMargin: '120px',
+    });
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, [ref]);
+
+  return onScreen;
+}
+
 export default function Hero3DStage() {
   const reducedMotion = usePrefersReducedMotion();
   const { particleCount, dpr } = useStageQuality();
+  const canvasRef = useRef(null);
+  const onScreen = useIsOnScreen(canvasRef);
+
+  let frameloop = 'always';
+  if (reducedMotion) frameloop = 'demand';
+  else if (!onScreen) frameloop = 'never';
 
   return (
     <Canvas
+      ref={canvasRef}
       className="hero-3d-canvas"
       dpr={dpr}
-      frameloop={reducedMotion ? 'demand' : 'always'}
+      frameloop={frameloop}
       camera={{ position: [0, 0.18, 6.2], fov: 42 }}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       performance={{ min: 0.55 }}
